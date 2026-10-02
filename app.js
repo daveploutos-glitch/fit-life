@@ -24,6 +24,14 @@
 
   const $ = (sel, el = document) => el.querySelector(sel);
   const $$ = (sel, el = document) => [...el.querySelectorAll(sel)];
+  const setText = (sel, text) => {
+    const n = $(sel);
+    if (n) n.textContent = text;
+  };
+  const setHtml = (sel, html) => {
+    const n = $(sel);
+    if (n) n.innerHTML = html;
+  };
 
   function fmtNum(n, d = 1) {
     if (n == null || Number.isNaN(n)) return "—";
@@ -91,8 +99,11 @@
       bindReveal();
       bindParallax();
     } catch (err) {
-      $("#app").innerHTML = `<div class="error">載入失敗 / LOAD ERROR<br><small>${err.message}</small></div>`;
       console.error(err);
+      const banner = document.createElement("div");
+      banner.className = "error";
+      banner.innerHTML = `載入失敗 / LOAD ERROR<br><small>${err.message}</small><br><small>試下強制刷新：Safari 長按重新載入</small>`;
+      document.body.prepend(banner);
     }
   }
 
@@ -205,8 +216,8 @@
     const dayNum = daysBetween(g.start, today) + 1;
     const progress = pctProgress(g.start, g.end, today);
 
-    $("#hero-weight").textContent = fmtNum(baseline.weightKg, 1);
-    $("#hero-sub").textContent = `${p.name} · ${p.coach} · Day ${Math.max(1, dayNum)} / ${g.weeks * 7} · ${p.training.phaseName}`;
+    setText("#hero-weight", fmtNum(baseline.weightKg, 1));
+    setText("#hero-sub", `${p.name} · ${p.coach} · Day ${Math.max(1, dayNum)} / ${g.weeks * 7} · ${p.training.phaseName}`);
 
     renderMission(g, progress, dayNum);
     renderTelemetry(p);
@@ -224,14 +235,14 @@
     $("#mission-lede").innerHTML =
       `目標 summer body：${g.summerBody.weightKg.min}–${g.summerBody.weightKg.max} kg · ${g.summerBody.bodyFatPct.min}–${g.summerBody.bodyFatPct.max}% 體脂。<br />` +
       `時軸 ${g.start} → ${g.end}。`;
-    $("#mission-summer").textContent = `${g.summerBody.weightKg.min}–${g.summerBody.weightKg.max} kg`;
-    $("#mission-bf").textContent = `${g.summerBody.bodyFatPct.min}–${g.summerBody.bodyFatPct.max}% BF`;
-    $("#mission-6m").textContent = `${g.sixMonth.targetWeightKg.min}–${g.sixMonth.targetWeightKg.max} kg`;
-    $("#mission-loss").textContent = `−${g.sixMonth.weightLossKg.min}–${g.sixMonth.weightLossKg.max} kg`;
-    $("#mission-pct").textContent = `${progress.toFixed(1)}%`;
-    $("#mission-day").textContent = `Day ${Math.max(1, dayNum)} / ${g.weeks * 7}`;
-    $("#mission-bar").style.width = `${progress.toFixed(1)}%`;
-    $("#mission-range").textContent = `${g.start} → ${g.end}`;
+    setText("#mission-summer", `${g.summerBody.weightKg.min}–${g.summerBody.weightKg.max} kg`);
+    setText("#mission-bf", `${g.summerBody.bodyFatPct.min}–${g.summerBody.bodyFatPct.max}% BF`);
+    setText("#mission-6m", `${g.sixMonth.targetWeightKg.min}–${g.sixMonth.targetWeightKg.max} kg`);
+    setText("#mission-loss", `−${g.sixMonth.weightLossKg.min}–${g.sixMonth.weightLossKg.max} kg`);
+    setText("#mission-pct", `${progress.toFixed(1)}%`);
+    setText("#mission-day", `Day ${Math.max(1, dayNum)} / ${g.weeks * 7}`);
+    (() => { const __n = $("#mission-bar"); if (__n) __n.style.width = `${progress.toFixed(1)}%`; })();
+    setText("#mission-range", `${g.start} → ${g.end}`);
 
     const today = todayISO();
     $("#phase-row").innerHTML = (g.phases || [])
@@ -250,7 +261,7 @@
 
   function renderTelemetry(p) {
     const b = p.baseline;
-    $("#telemetry-lede").textContent = `官方基準 ${b.source} · ${b.date} ${b.time} · ${b.note}`;
+    setText("#telemetry-lede", `官方基準 ${b.source} · ${b.date} ${b.time} · ${b.note}`);
     $("#baseline-strip").innerHTML = [
       ["WEIGHT", `${fmtNum(b.weightKg, 1)} kg`],
       ["BF%", `${fmtNum(b.bodyFatPct, 1)}%`],
@@ -366,7 +377,7 @@
   }
 
   function renderTraining(p) {
-    $("#training-lede").textContent = `${p.training.phaseName} · ${p.training.split}`;
+    setText("#training-lede", `${p.training.phaseName} · ${p.training.split}`);
 
     const done = (state.log.entries || []).filter((e) => e.training?.status === "complete");
     const latest = done[done.length - 1];
@@ -381,7 +392,7 @@
           return `<li><span class="nm">${ex.nameZh || ex.name}<small>${ex.name}</small></span><span class="wt">${wt}</span></li>`;
         })
         .join("");
-      $("#workout-a-meta").textContent = `${latest.date} · Workout ${latest.training.workout} · FIRST COMPLETE`;
+      setText("#workout-a-meta", `${latest.date} · Workout ${latest.training.workout} · FIRST COMPLETE`);
     } else {
       list.innerHTML = "<li>尚未有訓練記錄</li>";
     }
@@ -393,7 +404,7 @@
         return `<li><span class="nm">${ex.nameZh}<small>${ex.name} · ${ex.sets}×${ex.reps}</small></span><span class="wt">${sug}</span></li>`;
       })
       .join("");
-    $("#workout-b-meta").textContent = `計劃 ${B.plannedDate || "Sat"} · Workout B`;
+    setText("#workout-b-meta", `計劃 ${B.plannedDate || "Sat"} · Workout B`);
 
     $("#week-strip").innerHTML = (p.training.thisWeek || [])
       .map((d) => {
@@ -406,7 +417,7 @@
         </div>`;
       })
       .join("");
-    $("#week-note").textContent = p.training.note || "";
+    setText("#week-note", p.training.note || "");
   }
 
   function renderFuel(entry, p) {
@@ -418,18 +429,17 @@
     const incomplete = entry?.kcal?.incomplete || entry?.partial;
 
     const dateLabel = entry?.date === todayISO() ? "今日 TODAY" : `最近 ${entry?.date || "—"}`;
-    $("#fuel-lede").textContent = dateLabel + (incomplete ? " · partial" : "");
+    setText("#fuel-lede", dateLabel + (incomplete ? " · partial" : ""));
 
-    $("#fuel-kcal").textContent = kcal ? fmtNum(kcal, 0) + (incomplete && kcal < 500 ? "*" : "") : "—";
-    $("#fuel-protein").textContent =
-      protein ? fmtNum(protein, 0) + (incomplete && protein < 40 ? "*" : "") : "—";
-    $("#fuel-steps").textContent = steps ? fmtNum(steps, 0) : "—";
-    $("#fuel-sleep").textContent = sleep ? fmtNum(sleep, 1) : "—";
+    setText("#fuel-kcal", kcal ? fmtNum(kcal, 0) + (incomplete && kcal < 500 ? "*" : "") : "—");
+    setText("#fuel-protein", protein ? fmtNum(protein, 0) + (incomplete && protein < 40 ? "*" : "") : "—");
+    setText("#fuel-steps", steps ? fmtNum(steps, 0) : "—");
+    setText("#fuel-sleep", sleep ? fmtNum(sleep, 1) : "—");
 
-    $("#fuel-kcal-t").textContent = `目標 ${t.kcal.min}–${t.kcal.max}`;
-    $("#fuel-protein-t").textContent = `目標 ${t.proteinG.min}–${t.proteinG.max}g`;
-    $("#fuel-steps-t").textContent = `目標 ${fmtNum(t.steps.min, 0)}–${fmtNum(t.steps.max, 0)}`;
-    $("#fuel-sleep-t").textContent = `目標 ${t.sleepH.min}h+`;
+    setText("#fuel-kcal-t", `目標 ${t.kcal.min}–${t.kcal.max}`);
+    setText("#fuel-protein-t", `目標 ${t.proteinG.min}–${t.proteinG.max}g`);
+    setText("#fuel-steps-t", `目標 ${fmtNum(t.steps.min, 0)}–${fmtNum(t.steps.max, 0)}`);
+    setText("#fuel-sleep-t", `目標 ${t.sleepH.min}h+`);
 
     const kcalT = (t.kcal.min + t.kcal.max) / 2;
     const proteinT = (t.proteinG.min + t.proteinG.max) / 2;
