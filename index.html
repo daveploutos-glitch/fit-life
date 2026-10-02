@@ -4,243 +4,218 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#000000" />
-  <meta name="description" content="FIT LIFE · Chi Wai fitness dashboard — minimal cinematic" />
+  <meta name="description" content="FIT LIFE · Chi Wai · Summer Body Mission" />
   <title>FIT LIFE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
-  <nav class="topnav" aria-label="primary">
-    <div class="topnav-inner">
-      <div class="logo">FIT LIFE</div>
-      <div class="nav" aria-label="sections">
-        <button type="button" class="active" data-section="sec-home">儀表板</button>
-        <button type="button" data-section="sec-goals">目標</button>
-        <button type="button" data-section="sec-body">體組成</button>
-        <button type="button" data-section="sec-train">訓練</button>
-        <button type="button" data-section="sec-food">營養</button>
-        <button type="button" data-section="sec-move">步數·睡眠</button>
-        <button type="button" data-section="sec-journal">日誌</button>
-      </div>
-    </div>
-  </nav>
+  <!-- Fixed minimal top nav -->
+  <header class="site-nav" id="site-nav">
+    <a class="nav-logo" href="#hero">FIT LIFE</a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="nav-links" aria-label="sections">
+      <a href="#mission">MISSION</a>
+      <a href="#telemetry">TELEMETRY</a>
+      <a href="#training">TRAINING</a>
+      <a href="#fuel">FUEL</a>
+      <a href="#log">LOG</a>
+    </nav>
+  </header>
 
-  <div class="wrap" id="app">
-    <header class="hero">
-      <div class="eyebrow">MISSION CONTROL</div>
-      <h1>FIT LIFE</h1>
-      <p class="sub" id="brand-sub">載入中…</p>
-      <div class="meta-pills">
-        <span class="pill" id="pill-phase">—</span>
-        <span class="pill accent" id="pill-weight">—</span>
-        <span class="pill accent" id="pill-bf">—</span>
-        <span class="pill" id="pill-date">—</span>
+  <main id="app">
+    <!-- 1. HERO -->
+    <section class="stage hero" id="hero">
+      <div class="stage-bg hero-bg" aria-hidden="true"></div>
+      <div class="stage-vignette" aria-hidden="true"></div>
+      <div class="stage-inner hero-inner reveal">
+        <p class="eyebrow">CHI WAI · SUMMER BODY MISSION</p>
+        <h1 class="display">FIT LIFE</h1>
+        <p class="hero-baseline">
+          <span class="hero-num" id="hero-weight">102.6</span>
+          <span class="hero-unit">KG BASELINE</span>
+        </p>
+        <p class="hero-sub" id="hero-sub">載入中…</p>
+        <a class="cta" href="#mission" id="cta-begin">BEGIN</a>
       </div>
-    </header>
+      <div class="scroll-cue" aria-hidden="true"><span></span></div>
+    </section>
 
-    <!-- HOME -->
-    <section id="sec-home" class="section active">
-      <div class="panel">
-        <div class="panel-head">
-          <h2>今日目標 vs 實績</h2>
-          <span class="hint" id="kpi-hint">—</span>
-        </div>
-        <div class="kpi-grid">
-          <div class="kpi">
-            <div class="label">熱量 KCAL</div>
-            <div class="ring-wrap">
-              <canvas id="ring-kcal" width="96" height="96"></canvas>
-              <div class="ring-center"><span class="val" id="kpi-kcal-val">—</span><span class="unit">kcal</span></div>
-            </div>
-            <div class="target" id="kpi-kcal-tgt">—</div>
+    <!-- 2. MISSION -->
+    <section class="stage mission" id="mission">
+      <div class="stage-bg mission-bg" aria-hidden="true"></div>
+      <div class="stage-vignette" aria-hidden="true"></div>
+      <div class="stage-inner reveal">
+        <p class="eyebrow">MISSION</p>
+        <h2 class="headline">六個月任務<br /><span class="en">SIX-MONTH OBJECTIVE</span></h2>
+        <p class="lede" id="mission-lede">
+          目標 summer body：87–90 kg · 12–15% 體脂。<br />
+          時軸 2026-09-28 → 2027-03-28。
+        </p>
+        <div class="mission-stats reveal">
+          <div class="big-stat">
+            <div class="big-stat-k">SUMMER BODY</div>
+            <div class="big-stat-v" id="mission-summer">87–90 kg</div>
+            <div class="big-stat-s" id="mission-bf">12–15% BF</div>
           </div>
-          <div class="kpi">
-            <div class="label">蛋白質 PROTEIN</div>
-            <div class="ring-wrap">
-              <canvas id="ring-protein" width="96" height="96"></canvas>
-              <div class="ring-center"><span class="val" id="kpi-protein-val">—</span><span class="unit">g</span></div>
-            </div>
-            <div class="target" id="kpi-protein-tgt">—</div>
+          <div class="big-stat">
+            <div class="big-stat-k">6-MONTH TARGET</div>
+            <div class="big-stat-v" id="mission-6m">92–96 kg</div>
+            <div class="big-stat-s" id="mission-loss">−12–16 kg</div>
           </div>
-          <div class="kpi">
-            <div class="label">步數 STEPS</div>
-            <div class="ring-wrap">
-              <canvas id="ring-steps" width="96" height="96"></canvas>
-              <div class="ring-center"><span class="val" id="kpi-steps-val">—</span><span class="unit">steps</span></div>
-            </div>
-            <div class="target" id="kpi-steps-tgt">—</div>
-          </div>
-          <div class="kpi">
-            <div class="label">睡眠 SLEEP</div>
-            <div class="ring-wrap">
-              <canvas id="ring-sleep" width="96" height="96"></canvas>
-              <div class="ring-center"><span class="val" id="kpi-sleep-val">—</span><span class="unit">hours</span></div>
-            </div>
-            <div class="target" id="kpi-sleep-tgt">—</div>
+          <div class="big-stat">
+            <div class="big-stat-k">PROGRESS</div>
+            <div class="big-stat-v" id="mission-pct">—</div>
+            <div class="big-stat-s" id="mission-day">—</div>
           </div>
         </div>
-      </div>
-
-      <div class="grid-2" style="margin-bottom:8px">
-        <div class="panel" style="border-bottom:none;padding-bottom:0">
-          <div class="panel-head">
-            <h2>本週訓練計劃</h2>
-            <span class="hint">PHASE 1 A/B</span>
-          </div>
-          <div class="week-plan" id="week-plan"></div>
-          <p class="muted-note" id="week-note" style="margin-top:16px"></p>
+        <div class="progress-block reveal">
+          <div class="progress-track"><div class="progress-fill" id="mission-bar"></div></div>
+          <div class="progress-range" id="mission-range">2026-09-28 → 2027-03-28</div>
         </div>
-        <div class="panel" style="border-bottom:none;padding-bottom:0">
-          <div class="panel-head">
-            <h2>習慣 STREAK</h2>
-            <span class="hint">TAP · LOCAL</span>
-          </div>
-          <div class="chips" id="habit-chips"></div>
-          <div class="note-box">
-            <label for="local-notes">私人備註（本機）</label>
-            <textarea id="local-notes" placeholder="寫低今日感覺、要帶去 gym 嘅嘢…"></textarea>
-            <button type="button" class="btn" id="save-notes">SAVE</button>
-            <span id="notes-status"></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel">
-        <div class="panel-head">
-          <h2>基準快覽 BASELINE</h2>
-          <span class="hint">howbodyfit 2026-10-01</span>
-        </div>
-        <div class="stat-row" id="home-baseline-stats">
-          <div class="stat"><div class="k">體重</div><div class="v">102.6</div><div class="s">kg official</div></div>
-          <div class="stat"><div class="k">體脂</div><div class="v">29.8%</div><div class="s">30.6 kg fat</div></div>
-          <div class="stat"><div class="k">骨骼肌</div><div class="v">41.3</div><div class="s">kg</div></div>
-          <div class="stat"><div class="k">BMR</div><div class="v">1,925</div><div class="s">kcal</div></div>
-        </div>
+        <div class="phase-row reveal" id="phase-row"></div>
+        <a class="cta ghost" href="#telemetry">LEARN MORE</a>
       </div>
     </section>
 
-    <!-- GOALS -->
-    <section id="sec-goals" class="section">
-      <div class="panel">
-        <div class="panel-head">
-          <h2>六個月任務時軸</h2>
-          <span class="hint" id="goal-range">—</span>
-        </div>
-        <div class="progress-label" id="goal-progress-txt">—</div>
-        <div class="progress-track">
-          <div class="progress-fill" id="goal-progress-bar"></div>
-        </div>
-        <div class="stat-row" style="margin-top:24px">
-          <div class="stat"><div class="k">Summer body</div><div class="v" id="goal-summer" style="font-size:1rem">—</div></div>
-          <div class="stat"><div class="k">6 個月目標</div><div class="v" id="goal-6m" style="font-size:1rem">—</div></div>
-        </div>
-      </div>
-      <div class="grid-2">
-        <div class="panel" style="border-bottom:none">
-          <div class="panel-head"><h2>分期 PHASES</h2></div>
-          <div class="timeline" id="phase-timeline"></div>
-        </div>
-        <div class="panel" style="border-bottom:none">
-          <div class="panel-head"><h2>里程碑 MILESTONES</h2></div>
-          <div class="timeline" id="milestones"></div>
-        </div>
-      </div>
-    </section>
+    <!-- 3. TELEMETRY -->
+    <section class="stage telemetry" id="telemetry">
+      <div class="stage-bg telemetry-bg" aria-hidden="true"></div>
+      <div class="stage-vignette" aria-hidden="true"></div>
+      <div class="stage-inner wide reveal">
+        <p class="eyebrow">TELEMETRY</p>
+        <h2 class="headline">體組成信號<br /><span class="en">BODY COMPOSITION</span></h2>
+        <p class="lede" id="telemetry-lede">官方基準 howbodyfit · 2026-10-01</p>
 
-    <!-- BODY -->
-    <section id="sec-body" class="section">
-      <div class="panel">
-        <div class="panel-head">
-          <h2>官方體組成基準</h2>
-          <span class="hint">howbodyfit</span>
-        </div>
-        <p class="muted-note" id="comp-meta"></p>
-        <div class="comp-grid" id="comp-grid"></div>
-        <p class="warn-note" id="comp-prescale"></p>
-      </div>
-      <div class="grid-2">
-        <div class="panel" style="border-bottom:none">
-          <div class="panel-head"><h2>體重趨勢 WEIGHT</h2></div>
-          <div class="chart-box"><canvas id="chart-weight"></canvas></div>
-        </div>
-        <div class="panel" style="border-bottom:none">
-          <div class="panel-head"><h2>體脂趨勢 BF%</h2><span class="hint">未來量度會疊加</span></div>
-          <div class="chart-box"><canvas id="chart-bf"></canvas></div>
-        </div>
-      </div>
-    </section>
+        <div class="baseline-strip reveal" id="baseline-strip"></div>
 
-    <!-- TRAIN -->
-    <section id="sec-train" class="section">
-      <div class="grid-2">
-        <div class="panel" style="border-bottom:none">
-          <div class="panel-head">
-            <h2>Workout A · 記錄</h2>
-            <span class="hint" id="workout-a-meta">—</span>
+        <div class="chart-stack reveal">
+          <div class="chart-panel">
+            <div class="chart-label">WEIGHT · KG</div>
+            <div class="chart-frame"><canvas id="chart-weight"></canvas></div>
           </div>
-          <ul class="ex-list" id="workout-a-log"></ul>
-        </div>
-        <div class="panel" style="border-bottom:none">
-          <div class="panel-head">
-            <h2>Workout B · 計劃</h2>
-            <span class="hint" id="workout-b-meta">—</span>
+          <div class="chart-panel">
+            <div class="chart-label">BODY FAT · %</div>
+            <div class="chart-frame"><canvas id="chart-bf"></canvas></div>
           </div>
-          <ul class="ex-list" id="workout-b-plan"></ul>
+          <div class="chart-panel">
+            <div class="chart-label">STEPS</div>
+            <div class="chart-frame"><canvas id="chart-steps"></canvas></div>
+          </div>
         </div>
-      </div>
-      <div class="panel">
-        <div class="panel-head"><h2>訓練日熱圖 HEAT</h2><span class="hint">白 = train · 灰 = logged</span></div>
-        <div class="heat" id="heat-cal"></div>
-      </div>
-    </section>
-
-    <!-- NUTRITION -->
-    <section id="sec-food" class="section">
-      <div class="grid-2">
-        <div class="panel" style="border-bottom:none">
-          <div class="panel-head"><h2>每日熱量 KCAL</h2><span class="hint">琥珀 = 未完整</span></div>
-          <div class="chart-box"><canvas id="chart-kcal"></canvas></div>
-        </div>
-        <div class="panel" style="border-bottom:none">
-          <div class="panel-head"><h2>每日蛋白質 PROTEIN</h2></div>
-          <div class="chart-box"><canvas id="chart-protein"></canvas></div>
-        </div>
+        <a class="cta ghost" href="#training">VIEW TRAINING</a>
       </div>
     </section>
 
-    <!-- STEPS / SLEEP -->
-    <section id="sec-move" class="section">
-      <div class="grid-2">
-        <div class="panel" style="border-bottom:none">
-          <div class="panel-head"><h2>步數 STEPS</h2><span class="hint">目標 7–8k</span></div>
-          <div class="chart-box"><canvas id="chart-steps"></canvas></div>
+    <!-- 4. TRAINING -->
+    <section class="stage training" id="training">
+      <div class="stage-bg training-bg" aria-hidden="true"></div>
+      <div class="stage-vignette" aria-hidden="true"></div>
+      <div class="stage-inner wide reveal">
+        <p class="eyebrow">TRAINING</p>
+        <h2 class="headline">訓練任務<br /><span class="en">MISSION PATCH</span></h2>
+        <p class="lede" id="training-lede">Phase 1 · Full-body A/B</p>
+
+        <div class="patch-grid">
+          <article class="patch reveal" id="patch-a">
+            <div class="patch-stamp">COMPLETE</div>
+            <h3 class="patch-title">WORKOUT A</h3>
+            <p class="patch-meta" id="workout-a-meta">—</p>
+            <ul class="lift-rows" id="workout-a-log"></ul>
+          </article>
+          <article class="patch planned reveal" id="patch-b">
+            <div class="patch-stamp">PLANNED</div>
+            <h3 class="patch-title">WORKOUT B</h3>
+            <p class="patch-meta" id="workout-b-meta">—</p>
+            <ul class="lift-rows" id="workout-b-plan"></ul>
+          </article>
         </div>
-        <div class="panel" style="border-bottom:none">
-          <div class="panel-head"><h2>睡眠 SLEEP</h2><span class="hint">目標 7h+</span></div>
-          <div class="chart-box"><canvas id="chart-sleep"></canvas></div>
-        </div>
+
+        <div class="week-strip reveal" id="week-strip"></div>
+        <p class="note" id="week-note"></p>
+        <a class="cta ghost" href="#fuel">VIEW FUEL</a>
       </div>
     </section>
 
-    <!-- JOURNAL -->
-    <section id="sec-journal" class="section">
-      <div class="panel">
-        <div class="panel-head"><h2>每日日誌 FEED</h2><span class="hint">data/log.json</span></div>
-        <div class="feed" id="journal-feed"></div>
+    <!-- 5. FUEL -->
+    <section class="stage fuel" id="fuel">
+      <div class="stage-bg fuel-bg" aria-hidden="true"></div>
+      <div class="stage-vignette" aria-hidden="true"></div>
+      <div class="stage-inner wide reveal">
+        <p class="eyebrow">FUEL</p>
+        <h2 class="headline">營養補給<br /><span class="en">NUTRITION</span></h2>
+        <p class="lede" id="fuel-lede">今日 / 最近一日</p>
+
+        <div class="fuel-nums reveal">
+          <div class="fuel-num">
+            <div class="fuel-v" id="fuel-kcal">—</div>
+            <div class="fuel-k">KCAL</div>
+            <div class="fuel-bar"><span id="fuel-kcal-bar"></span></div>
+            <div class="fuel-t" id="fuel-kcal-t">目標 2000–2100</div>
+          </div>
+          <div class="fuel-num">
+            <div class="fuel-v" id="fuel-protein">—</div>
+            <div class="fuel-k">PROTEIN G</div>
+            <div class="fuel-bar"><span id="fuel-protein-bar"></span></div>
+            <div class="fuel-t" id="fuel-protein-t">目標 170–180</div>
+          </div>
+          <div class="fuel-num">
+            <div class="fuel-v" id="fuel-steps">—</div>
+            <div class="fuel-k">STEPS</div>
+            <div class="fuel-bar"><span id="fuel-steps-bar"></span></div>
+            <div class="fuel-t" id="fuel-steps-t">目標 7–8k</div>
+          </div>
+          <div class="fuel-num">
+            <div class="fuel-v" id="fuel-sleep">—</div>
+            <div class="fuel-k">SLEEP H</div>
+            <div class="fuel-bar"><span id="fuel-sleep-bar"></span></div>
+            <div class="fuel-t" id="fuel-sleep-t">目標 7h+</div>
+          </div>
+        </div>
+
+        <div class="chart-stack twin reveal">
+          <div class="chart-panel">
+            <div class="chart-label">DAILY KCAL</div>
+            <div class="chart-frame"><canvas id="chart-kcal"></canvas></div>
+          </div>
+          <div class="chart-panel">
+            <div class="chart-label">DAILY PROTEIN</div>
+            <div class="chart-frame"><canvas id="chart-protein"></canvas></div>
+          </div>
+        </div>
+        <a class="cta ghost" href="#log">VIEW LOG</a>
       </div>
     </section>
 
-    <footer class="footer">
-      <div id="footer-meta">—</div>
-      <div style="margin-top:8px">
-        FIT LIFE · Chi Wai ·
-        <a href="https://github.com/daveploutos-glitch/fit-life">repo</a>
+    <!-- 6. LOG -->
+    <section class="stage log" id="log">
+      <div class="stage-bg log-bg" aria-hidden="true"></div>
+      <div class="stage-vignette" aria-hidden="true"></div>
+      <div class="stage-inner wide reveal">
+        <p class="eyebrow">LOG</p>
+        <h2 class="headline">任務日誌<br /><span class="en">FLIGHT JOURNAL</span></h2>
+        <p class="lede">Chronological · editorial</p>
+        <div class="journal" id="journal-feed"></div>
+      </div>
+    </section>
+
+    <!-- 7. FOOTER -->
+    <footer class="site-footer" id="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">FIT AS FUCK</div>
+        <div class="footer-meta" id="footer-meta">—</div>
+        <div class="footer-links">
+          <a href="https://github.com/daveploutos-glitch/fit-life">REPO</a>
+          <a href="#hero">TOP</a>
+        </div>
       </div>
     </footer>
-  </div>
+  </main>
 </body>
 </html>

@@ -1,12 +1,7 @@
-/* FIT LIFE · dashboard runtime — SpaceX minimal palette */
+/* FIT LIFE · SpaceX scroll storytelling runtime */
 (function () {
   "use strict";
 
-  const LS_HABITS = "fitlife.habits.v1";
-  const LS_NOTES = "fitlife.notes.v1";
-  const LS_CHECKS = "fitlife.checks.v1";
-
-  /* Monochrome + single accent */
   const C = {
     white: "#ffffff",
     soft: "rgba(255,255,255,0.55)",
@@ -14,7 +9,7 @@
     track: "rgba(255,255,255,0.08)",
     blue: "#3d7eff",
     blueSoft: "rgba(61,126,255,0.35)",
-    blueFill: "rgba(61,126,255,0.12)",
+    blueFill: "rgba(61,126,255,0.1)",
     warn: "rgba(196,163,90,0.55)",
     gray: "rgba(255,255,255,0.28)",
   };
@@ -63,8 +58,7 @@
   }
 
   function daysBetween(a, b) {
-    const ms = Date.parse(b) - Date.parse(a);
-    return Math.floor(ms / 86400000);
+    return Math.floor((Date.parse(b) - Date.parse(a)) / 86400000);
   }
 
   function pctProgress(start, end, now) {
@@ -81,7 +75,6 @@
   }
 
   async function boot() {
-    const root = $("#app");
     try {
       const [profile, goals, log, version] = await Promise.all([
         loadJSON("data/profile.json"),
@@ -95,52 +88,99 @@
       state.version = version;
       render();
       bindNav();
-      restoreLocal();
+      bindReveal();
+      bindParallax();
     } catch (err) {
-      root.innerHTML = `<div class="error">載入失敗 / LOAD ERROR<br><small>${err.message}</small></div>`;
+      $("#app").innerHTML = `<div class="error">載入失敗 / LOAD ERROR<br><small>${err.message}</small></div>`;
       console.error(err);
     }
   }
 
   function bindNav() {
-    $$(".nav button").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        $$(".nav button").forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        const id = btn.dataset.section;
-        $$(".section").forEach((s) => s.classList.toggle("active", s.id === id));
-        Object.values(state.charts).forEach((c) => c && c.resize && c.resize());
+    const toggle = $("#nav-toggle");
+    const links = $("#nav-links");
+    const nav = $("#site-nav");
+
+    toggle?.addEventListener("click", () => {
+      const open = links.classList.toggle("open");
+      toggle.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+
+    $$("#nav-links a").forEach((a) => {
+      a.addEventListener("click", () => {
+        links.classList.remove("open");
+        toggle?.classList.remove("open");
+        toggle?.setAttribute("aria-expanded", "false");
       });
     });
+
+    const sections = ["mission", "telemetry", "training", "fuel", "log"].map((id) =>
+      document.getElementById(id)
+    );
+    const onScroll = () => {
+      if (window.scrollY > 40) nav.classList.add("scrolled");
+      else nav.classList.remove("scrolled");
+
+      let current = null;
+      const y = window.scrollY + 120;
+      sections.forEach((sec) => {
+        if (!sec) return;
+        if (sec.offsetTop <= y) current = sec.id;
+      });
+      $$("#nav-links a").forEach((a) => {
+        a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
   }
 
-  function restoreLocal() {
-    try {
-      const habits = JSON.parse(localStorage.getItem(LS_HABITS) || "{}");
-      $$(".chip[data-habit]").forEach((chip) => {
-        if (habits[chip.dataset.habit]) chip.classList.add("on");
-        chip.addEventListener("click", () => {
-          chip.classList.toggle("on");
-          const h = JSON.parse(localStorage.getItem(LS_HABITS) || "{}");
-          h[chip.dataset.habit] = chip.classList.contains("on");
-          localStorage.setItem(LS_HABITS, JSON.stringify(h));
-        });
-      });
-    } catch (_) {}
-
-    const notes = localStorage.getItem(LS_NOTES) || "";
-    const ta = $("#local-notes");
-    if (ta) {
-      ta.value = notes;
-      $("#save-notes")?.addEventListener("click", () => {
-        localStorage.setItem(LS_NOTES, ta.value);
-        const s = $("#notes-status");
-        if (s) {
-          s.textContent = "已儲存 · SAVED";
-          setTimeout(() => (s.textContent = ""), 1800);
-        }
-      });
+  function bindReveal() {
+    const nodes = $$(".reveal");
+    if (!("IntersectionObserver" in window)) {
+      nodes.forEach((n) => n.classList.add("in"));
+      return;
     }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    nodes.forEach((n) => io.observe(n));
+  }
+
+  function bindParallax() {
+    const bgs = $$(".stage-bg");
+    if (!bgs.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let ticking = false;
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const y = window.scrollY;
+          bgs.forEach((bg) => {
+            const stage = bg.parentElement;
+            if (!stage) return;
+            const top = stage.offsetTop;
+            const h = stage.offsetHeight;
+            if (y + window.innerHeight < top || y > top + h) return;
+            const local = (y - top) * 0.12;
+            bg.style.transform = `translate3d(0, ${local}px, 0)`;
+          });
+          ticking = false;
+        });
+      },
+      { passive: true }
+    );
   }
 
   function latestEntry() {
@@ -153,8 +193,7 @@
   }
 
   function todayOrLatest() {
-    const t = todayISO();
-    return entryByDate(t) || latestEntry();
+    return entryByDate(todayISO()) || latestEntry();
   }
 
   function render() {
@@ -166,216 +205,129 @@
     const dayNum = daysBetween(g.start, today) + 1;
     const progress = pctProgress(g.start, g.end, today);
 
-    $("#brand-sub").textContent = `${p.name} · ${p.coach} · Day ${Math.max(1, dayNum)} / ${g.weeks * 7}`;
-    $("#pill-phase").textContent = p.training.phaseName;
-    $("#pill-weight").textContent = `${fmtNum(baseline.weightKg, 1)} kg`;
-    $("#pill-bf").textContent = `${fmtNum(baseline.bodyFatPct, 1)}% BF`;
-    $("#pill-date").textContent = today;
+    $("#hero-weight").textContent = fmtNum(baseline.weightKg, 1);
+    $("#hero-sub").textContent = `${p.name} · ${p.coach} · Day ${Math.max(1, dayNum)} / ${g.weeks * 7} · ${p.training.phaseName}`;
 
-    renderKPIs(entry, p);
-    renderWeekPlan(p);
-    renderHabits(g);
-    renderGoals(g, progress, dayNum);
-    renderBodyComp(p);
+    renderMission(g, progress, dayNum);
+    renderTelemetry(p);
     renderTraining(p);
-    renderNutrition();
-    renderStepsSleep();
+    renderFuel(entry, p);
     renderJournal();
-    renderHeat();
 
     const ver = state.version;
     $("#footer-meta").textContent = ver
-      ? `BUILD ${ver.version} · ${ver.built} ${ver.tz || "HKT"}`
-      : "FIT LIFE";
+      ? `DATA ${ver.version} · ${ver.built} ${ver.tz || "HKT"}`
+      : "FIT AS FUCK";
   }
 
-  function drawRing(canvasId, value, target, color) {
-    const canvas = document.getElementById(canvasId);
-    if (!canvas || typeof Chart === "undefined") return;
-    const pct = target > 0 ? Math.min(value / target, 1.15) : 0;
-    const remain = Math.max(0, 1 - Math.min(pct, 1));
-    if (state.charts[canvasId]) state.charts[canvasId].destroy();
-    state.charts[canvasId] = new Chart(canvas, {
-      type: "doughnut",
-      data: {
-        datasets: [
-          {
-            data: [Math.min(pct, 1), remain],
-            backgroundColor: [color, C.track],
-            borderWidth: 0,
-            hoverOffset: 0,
-          },
-        ],
-      },
-      options: {
-        cutout: "78%",
-        responsive: false,
-        plugins: { legend: { display: false }, tooltip: { enabled: false } },
-        animation: { animateRotate: true, duration: 900 },
-      },
-    });
-  }
+  function renderMission(g, progress, dayNum) {
+    $("#mission-lede").innerHTML =
+      `目標 summer body：${g.summerBody.weightKg.min}–${g.summerBody.weightKg.max} kg · ${g.summerBody.bodyFatPct.min}–${g.summerBody.bodyFatPct.max}% 體脂。<br />` +
+      `時軸 ${g.start} → ${g.end}。`;
+    $("#mission-summer").textContent = `${g.summerBody.weightKg.min}–${g.summerBody.weightKg.max} kg`;
+    $("#mission-bf").textContent = `${g.summerBody.bodyFatPct.min}–${g.summerBody.bodyFatPct.max}% BF`;
+    $("#mission-6m").textContent = `${g.sixMonth.targetWeightKg.min}–${g.sixMonth.targetWeightKg.max} kg`;
+    $("#mission-loss").textContent = `−${g.sixMonth.weightLossKg.min}–${g.sixMonth.weightLossKg.max} kg`;
+    $("#mission-pct").textContent = `${progress.toFixed(1)}%`;
+    $("#mission-day").textContent = `Day ${Math.max(1, dayNum)} / ${g.weeks * 7}`;
+    $("#mission-bar").style.width = `${progress.toFixed(1)}%`;
+    $("#mission-range").textContent = `${g.start} → ${g.end}`;
 
-  function renderKPIs(entry, p) {
-    const t = p.targets;
-    const kcal = mid(entry?.kcal) ?? 0;
-    const protein = mid(entry?.proteinG) ?? 0;
-    const steps = entry?.steps ?? 0;
-    const sleep = entry?.sleepH ?? 0;
-    const kcalTarget = (t.kcal.min + t.kcal.max) / 2;
-    const proteinTarget = (t.proteinG.min + t.proteinG.max) / 2;
-    const stepsTarget = (t.steps.min + t.steps.max) / 2;
-    const sleepTarget = t.sleepH.min;
-
-    const incomplete = entry?.kcal?.incomplete || entry?.partial;
-
-    $("#kpi-kcal-val").textContent = incomplete && kcal < 500 ? fmtNum(kcal, 0) + "*" : fmtNum(kcal, 0);
-    $("#kpi-protein-val").textContent =
-      incomplete && protein < 40 ? fmtNum(protein, 0) + "*" : fmtNum(protein, 0);
-    $("#kpi-steps-val").textContent = steps ? fmtNum(steps, 0) : "—";
-    $("#kpi-sleep-val").textContent = sleep ? fmtNum(sleep, 1) : "—";
-
-    $("#kpi-kcal-tgt").textContent = `目標 ${t.kcal.min}–${t.kcal.max}`;
-    $("#kpi-protein-tgt").textContent = `目標 ${t.proteinG.min}–${t.proteinG.max}g`;
-    $("#kpi-steps-tgt").textContent = `目標 ${fmtNum(t.steps.min, 0)}–${fmtNum(t.steps.max, 0)}`;
-    $("#kpi-sleep-tgt").textContent = `目標 ${t.sleepH.min}h+`;
-
-    const dateLabel = entry?.date === todayISO() ? "今日 TODAY" : `最新 ${entry?.date || "—"}`;
-    $("#kpi-hint").textContent = dateLabel + (incomplete ? " · partial" : "");
-
-    drawRing("ring-kcal", kcal, kcalTarget, C.white);
-    drawRing("ring-protein", protein, proteinTarget, C.soft);
-    drawRing("ring-steps", steps || 0, stepsTarget, C.blue);
-    drawRing("ring-sleep", sleep || 0, sleepTarget, C.gray);
-  }
-
-  function renderWeekPlan(p) {
-    const el = $("#week-plan");
-    el.innerHTML = (p.training.thisWeek || [])
-      .map((d) => {
-        const cls = d.status === "done" ? "done" : "planned";
-        const st = d.status === "done" ? "COMPLETE" : "PLANNED";
-        return `<div class="day-card ${cls}">
-          <div class="d">${d.date} · ${d.day}</div>
-          <div class="w">WORKOUT ${d.workout}</div>
-          <div class="st">${st}</div>
-        </div>`;
-      })
-      .join("");
-    $("#week-note").textContent = p.training.note || "";
-  }
-
-  function renderHabits(g) {
-    const el = $("#habit-chips");
-    el.innerHTML = (g.habits || [])
-      .map(
-        (h) =>
-          `<button type="button" class="chip" data-habit="${h.id}"><span class="ico">${h.icon}</span>${h.label}</button>`
-      )
-      .join("");
-  }
-
-  function renderGoals(g, progress, dayNum) {
-    $("#goal-progress-bar").style.width = `${progress.toFixed(1)}%`;
-    $("#goal-progress-txt").textContent = `${progress.toFixed(1)}% · Day ${Math.max(1, dayNum)}`;
-    $("#goal-range").textContent = `${g.start} → ${g.end}`;
-    $("#goal-summer").textContent = `${g.summerBody.weightKg.min}–${g.summerBody.weightKg.max} kg · ${g.summerBody.bodyFatPct.min}–${g.summerBody.bodyFatPct.max}% BF`;
-    $("#goal-6m").textContent = `${g.sixMonth.targetWeightKg.min}–${g.sixMonth.targetWeightKg.max} kg（−${g.sixMonth.weightLossKg.min}–${g.sixMonth.weightLossKg.max}kg）`;
-
-    const phases = $("#phase-timeline");
     const today = todayISO();
-    phases.innerHTML = (g.phases || [])
+    $("#phase-row").innerHTML = (g.phases || [])
       .map((ph) => {
         let cls = "";
         if (today > ph.end) cls = "done";
         else if (today >= ph.start && today <= ph.end) cls = "active";
-        return `<div class="tl-item ${cls}">
-          <div class="when">${ph.weeks} · ${ph.start} → ${ph.end}</div>
-          <div class="what">${ph.name}</div>
-          <div class="detail">${ph.focus} · 熱量 ${ph.kcal}</div>
-        </div>`;
-      })
-      .join("");
-
-    const miles = $("#milestones");
-    miles.innerHTML = (g.milestones || [])
-      .map((m) => {
-        const cls = todayISO() >= m.date ? "done" : "";
-        return `<div class="tl-item ${cls}">
-          <div class="when">W${m.week} · ${m.date}</div>
-          <div class="what">${m.weightKg.min}–${m.weightKg.max} kg</div>
-          <div class="detail">${m.focus}</div>
+        return `<div class="phase-card ${cls}">
+          <div class="ph-w">${ph.weeks}</div>
+          <div class="ph-n">${ph.name}</div>
+          <div class="ph-f">${ph.focus}</div>
         </div>`;
       })
       .join("");
   }
 
-  function renderBodyComp(p) {
+  function renderTelemetry(p) {
     const b = p.baseline;
-    const pre = p.preScaleEstimate;
-    $("#comp-grid").innerHTML = [
-      ["體重 WEIGHT", `${fmtNum(b.weightKg, 1)} kg`],
-      ["體脂 BF%", `${fmtNum(b.bodyFatPct, 1)}%`],
-      ["脂肪量 FAT", `${fmtNum(b.fatMassKg, 1)} kg`],
-      ["骨骼肌 SM", `${fmtNum(b.skeletalMuscleKg, 1)} kg`],
-      ["去脂 FFM", `${fmtNum(b.ffmKg, 1)} kg`],
+    $("#telemetry-lede").textContent = `官方基準 ${b.source} · ${b.date} ${b.time} · ${b.note}`;
+    $("#baseline-strip").innerHTML = [
+      ["WEIGHT", `${fmtNum(b.weightKg, 1)} kg`],
+      ["BF%", `${fmtNum(b.bodyFatPct, 1)}%`],
+      ["FAT", `${fmtNum(b.fatMassKg, 1)} kg`],
+      ["MUSCLE", `${fmtNum(b.skeletalMuscleKg, 1)} kg`],
+      ["FFM", `${fmtNum(b.ffmKg, 1)} kg`],
       ["BMI", fmtNum(b.bmi, 1)],
-      ["內臟脂肪 VF", fmtNum(b.visceralFat, 0)],
-      ["腰臀比 WHR", fmtNum(b.whr, 2)],
-      ["BMR", `${fmtNum(b.bmr, 0)} kcal`],
-      ["代謝年齡", `${b.metabolicAge} yrs`],
-      ["儀器理想", `${fmtNum(b.deviceIdealKg, 1)} kg`],
-      ["綜合分", fmtNum(b.score, 0)],
+      ["VF", fmtNum(b.visceralFat, 0)],
+      ["BMR", fmtNum(b.bmr, 0)],
     ]
-      .map(([k, v]) => `<div class="comp"><div class="k">${k}</div><div class="v">${v}</div></div>`)
+      .map(([k, v]) => `<div class="bs"><div class="k">${k}</div><div class="v">${v}</div></div>`)
       .join("");
 
-    $("#comp-meta").textContent = `官方基準 ${b.date} ${b.time} · ${b.source} · ${b.note}`;
-    $("#comp-prescale").textContent = `先前自報 ${pre.date}：${pre.weightKg} kg（${pre.note}）`;
-
     const entries = state.log.entries.filter((e) => e.weightKg != null);
-    const labels = entries.map((e) => e.date.slice(5));
-    const weights = entries.map((e) => e.weightKg);
-    makeLineChart("chart-weight", labels, [
-      {
-        label: "體重 kg",
-        data: weights,
-        borderColor: C.white,
-        backgroundColor: "rgba(255,255,255,0.06)",
-        tension: 0.35,
-        fill: true,
-        pointRadius: 4,
-        pointBackgroundColor: C.white,
-        borderWidth: 1.5,
-      },
-    ]);
+    makeLineChart(
+      "chart-weight",
+      entries.map((e) => e.date.slice(5)),
+      [
+        {
+          label: "kg",
+          data: entries.map((e) => e.weightKg),
+          borderColor: C.white,
+          backgroundColor: "rgba(255,255,255,0.05)",
+          tension: 0.35,
+          fill: true,
+          pointRadius: 3,
+          pointBackgroundColor: C.white,
+          borderWidth: 1.5,
+        },
+      ]
+    );
 
     const bfEntries = state.log.entries.filter((e) => e.bodyComp?.bodyFatPct != null);
-    makeLineChart("chart-bf", bfEntries.map((e) => e.date.slice(5)), [
-      {
-        label: "體脂 %",
-        data: bfEntries.map((e) => e.bodyComp.bodyFatPct),
-        borderColor: C.blue,
-        backgroundColor: C.blueFill,
-        tension: 0.35,
-        fill: true,
-        pointRadius: 4,
-        pointBackgroundColor: C.blue,
-        borderWidth: 1.5,
-      },
-    ]);
+    makeLineChart(
+      "chart-bf",
+      bfEntries.map((e) => e.date.slice(5)),
+      [
+        {
+          label: "BF%",
+          data: bfEntries.map((e) => e.bodyComp.bodyFatPct),
+          borderColor: C.soft,
+          backgroundColor: "rgba(255,255,255,0.04)",
+          tension: 0.35,
+          fill: true,
+          pointRadius: 3,
+          pointBackgroundColor: C.soft,
+          borderWidth: 1.5,
+        },
+      ]
+    );
+
+    const all = state.log.entries || [];
+    makeBarChart(
+      "chart-steps",
+      all.map((e) => e.date.slice(5)),
+      [
+        {
+          label: "steps",
+          data: all.map((e) => e.steps),
+          backgroundColor: "rgba(255,255,255,0.35)",
+          borderRadius: 0,
+        },
+      ]
+    );
   }
 
   function chartDefaults() {
+    if (typeof Chart === "undefined") return;
     Chart.defaults.color = "#6b6b6b";
     Chart.defaults.borderColor = "rgba(255,255,255,0.06)";
-    Chart.defaults.font.family = "Inter, system-ui, sans-serif";
+    Chart.defaults.font.family = "Inter, Noto Sans TC, system-ui, sans-serif";
     Chart.defaults.font.size = 11;
   }
 
   function makeLineChart(id, labels, datasets) {
     const canvas = document.getElementById(id);
-    if (!canvas) return;
+    if (!canvas || typeof Chart === "undefined") return;
     if (state.charts[id]) state.charts[id].destroy();
     chartDefaults();
     state.charts[id] = new Chart(canvas, {
@@ -384,7 +336,7 @@
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: { legend: { display: datasets.length > 1, labels: { boxWidth: 12 } } },
+        plugins: { legend: { display: false } },
         scales: {
           x: { grid: { color: "rgba(255,255,255,0.04)" } },
           y: { grid: { color: "rgba(255,255,255,0.04)" }, beginAtZero: false },
@@ -395,7 +347,7 @@
 
   function makeBarChart(id, labels, datasets) {
     const canvas = document.getElementById(id);
-    if (!canvas) return;
+    if (!canvas || typeof Chart === "undefined") return;
     if (state.charts[id]) state.charts[id].destroy();
     chartDefaults();
     state.charts[id] = new Chart(canvas, {
@@ -404,7 +356,7 @@
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: { legend: { display: datasets.length > 1, labels: { boxWidth: 12 } } },
+        plugins: { legend: { display: false } },
         scales: {
           x: { grid: { display: false } },
           y: { grid: { color: "rgba(255,255,255,0.04)" }, beginAtZero: true },
@@ -414,6 +366,8 @@
   }
 
   function renderTraining(p) {
+    $("#training-lede").textContent = `${p.training.phaseName} · ${p.training.split}`;
+
     const done = (state.log.entries || []).filter((e) => e.training?.status === "complete");
     const latest = done[done.length - 1];
     const list = $("#workout-a-log");
@@ -432,66 +386,92 @@
       list.innerHTML = "<li>尚未有訓練記錄</li>";
     }
 
-    const bList = $("#workout-b-plan");
     const B = p.workouts.B;
-    bList.innerHTML = (B.exercises || [])
+    $("#workout-b-plan").innerHTML = (B.exercises || [])
       .map((ex) => {
-        const sug = ex.suggestedKg ? `建議 ${ex.suggestedKg}` : "";
+        const sug = ex.suggestedKg ? `建議 ${ex.suggestedKg}` : `${ex.sets}×${ex.reps}`;
         return `<li><span class="nm">${ex.nameZh}<small>${ex.name} · ${ex.sets}×${ex.reps}</small></span><span class="wt">${sug}</span></li>`;
       })
       .join("");
     $("#workout-b-meta").textContent = `計劃 ${B.plannedDate || "Sat"} · Workout B`;
+
+    $("#week-strip").innerHTML = (p.training.thisWeek || [])
+      .map((d) => {
+        const cls = d.status === "done" ? "done" : "";
+        const st = d.status === "done" ? "COMPLETE" : "PLANNED";
+        return `<div class="week-day ${cls}">
+          <div class="wd">${d.date} · ${d.day}</div>
+          <div class="ww">WORKOUT ${d.workout}</div>
+          <div class="ws">${st}</div>
+        </div>`;
+      })
+      .join("");
+    $("#week-note").textContent = p.training.note || "";
   }
 
-  function renderNutrition() {
+  function renderFuel(entry, p) {
+    const t = p.targets;
+    const kcal = mid(entry?.kcal) ?? 0;
+    const protein = mid(entry?.proteinG) ?? 0;
+    const steps = entry?.steps ?? 0;
+    const sleep = entry?.sleepH ?? 0;
+    const incomplete = entry?.kcal?.incomplete || entry?.partial;
+
+    const dateLabel = entry?.date === todayISO() ? "今日 TODAY" : `最近 ${entry?.date || "—"}`;
+    $("#fuel-lede").textContent = dateLabel + (incomplete ? " · partial" : "");
+
+    $("#fuel-kcal").textContent = kcal ? fmtNum(kcal, 0) + (incomplete && kcal < 500 ? "*" : "") : "—";
+    $("#fuel-protein").textContent =
+      protein ? fmtNum(protein, 0) + (incomplete && protein < 40 ? "*" : "") : "—";
+    $("#fuel-steps").textContent = steps ? fmtNum(steps, 0) : "—";
+    $("#fuel-sleep").textContent = sleep ? fmtNum(sleep, 1) : "—";
+
+    $("#fuel-kcal-t").textContent = `目標 ${t.kcal.min}–${t.kcal.max}`;
+    $("#fuel-protein-t").textContent = `目標 ${t.proteinG.min}–${t.proteinG.max}g`;
+    $("#fuel-steps-t").textContent = `目標 ${fmtNum(t.steps.min, 0)}–${fmtNum(t.steps.max, 0)}`;
+    $("#fuel-sleep-t").textContent = `目標 ${t.sleepH.min}h+`;
+
+    const kcalT = (t.kcal.min + t.kcal.max) / 2;
+    const proteinT = (t.proteinG.min + t.proteinG.max) / 2;
+    const stepsT = (t.steps.min + t.steps.max) / 2;
+    const sleepT = t.sleepH.min;
+
+    setBar("fuel-kcal-bar", kcal, kcalT);
+    setBar("fuel-protein-bar", protein, proteinT);
+    setBar("fuel-steps-bar", steps, stepsT);
+    setBar("fuel-sleep-bar", sleep, sleepT);
+
     const entries = state.log.entries || [];
     const labels = entries.map((e) => e.date.slice(5));
     makeBarChart("chart-kcal", labels, [
       {
-        label: "kcal (est)",
+        label: "kcal",
         data: entries.map((e) => mid(e.kcal)),
         backgroundColor: entries.map((e) =>
-          e.kcal?.incomplete ? C.warn : "rgba(255,255,255,0.55)"
+          e.kcal?.incomplete ? C.warn : "rgba(255,255,255,0.5)"
         ),
         borderRadius: 0,
       },
     ]);
     makeBarChart("chart-protein", labels, [
       {
-        label: "protein g",
+        label: "protein",
         data: entries.map((e) => mid(e.proteinG)),
         backgroundColor: entries.map((e) =>
-          e.proteinG?.incomplete ? C.warn : C.blueSoft
+          e.proteinG?.incomplete ? C.warn : "rgba(255,255,255,0.28)"
         ),
         borderRadius: 0,
       },
     ]);
   }
 
-  function renderStepsSleep() {
-    const entries = state.log.entries || [];
-    const labels = entries.map((e) => e.date.slice(5));
-    makeBarChart("chart-steps", labels, [
-      {
-        label: "steps",
-        data: entries.map((e) => e.steps),
-        backgroundColor: "rgba(255,255,255,0.4)",
-        borderRadius: 0,
-      },
-    ]);
-    makeLineChart("chart-sleep", labels, [
-      {
-        label: "sleep h",
-        data: entries.map((e) => e.sleepH),
-        borderColor: C.blue,
-        backgroundColor: C.blueFill,
-        tension: 0.35,
-        fill: true,
-        spanGaps: true,
-        pointRadius: 4,
-        borderWidth: 1.5,
-      },
-    ]);
+  function setBar(id, value, target) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const pct = target > 0 ? Math.min((value / target) * 100, 100) : 0;
+    requestAnimationFrame(() => {
+      el.style.width = `${pct}%`;
+    });
   }
 
   function renderJournal() {
@@ -499,58 +479,44 @@
     const entries = [...(state.log.entries || [])].reverse();
     feed.innerHTML = entries
       .map((e) => {
-        const badges = [];
+        const tags = [];
         if (e.type === "train" || e.training?.status === "complete")
-          badges.push('<span class="badge train">TRAIN</span>');
-        if (e.type === "rest") badges.push('<span class="badge">REST</span>');
-        if (e.type === "baseline") badges.push('<span class="badge">BASELINE</span>');
-        if (e.freeMeal) badges.push('<span class="badge free">FREE MEAL</span>');
-        if (e.partial) badges.push('<span class="badge">PARTIAL</span>');
+          tags.push('<span class="j-tag train">TRAIN</span>');
+        if (e.type === "rest") tags.push('<span class="j-tag">REST</span>');
+        if (e.type === "baseline") tags.push('<span class="j-tag">BASELINE</span>');
+        if (e.freeMeal) tags.push('<span class="j-tag free">FREE MEAL</span>');
+        if (e.partial) tags.push('<span class="j-tag">PARTIAL</span>');
         const meta = [];
         if (e.weightKg != null) meta.push(`<span>${e.weightKg} kg</span>`);
         if (e.steps != null) meta.push(`<span>${fmtNum(e.steps, 0)} steps</span>`);
         if (e.kcal) meta.push(`<span>${rangeLabel(e.kcal)} kcal</span>`);
         if (e.proteinG) meta.push(`<span>${rangeLabel(e.proteinG)}g P</span>`);
-        return `<article class="jcard">
-          <div class="top">
-            <div class="date">${e.date}（${e.weekday || ""}）</div>
-            <div>${badges.join(" ")}</div>
-          </div>
-          <div class="body">${e.journal || e.notes || ""}</div>
-          <div class="meta">${meta.join("")}</div>
+        if (e.sleepH != null) meta.push(`<span>${fmtNum(e.sleepH, 1)}h sleep</span>`);
+        return `<article class="j-entry reveal">
+          <div class="j-date">${e.date}（${e.weekday || ""}）${tags.join("")}</div>
+          <div class="j-body">${e.journal || e.notes || ""}</div>
+          <div class="j-meta">${meta.join("")}</div>
         </article>`;
       })
       .join("");
-  }
 
-  function renderHeat() {
-    const el = $("#heat-cal");
-    const entries = state.log.entries || [];
-    const map = Object.fromEntries(entries.map((e) => [e.date, e]));
-    const start = state.goals.start;
-    const days = ["一", "二", "三", "四", "五", "六", "日"];
-    const startDate = new Date(start + "T12:00:00");
-    let dow = startDate.getDay();
-    const mondayOffset = dow === 0 ? -6 : 1 - dow;
-    const gridStart = new Date(startDate);
-    gridStart.setDate(gridStart.getDate() + mondayOffset);
-
-    let html = days.map((d) => `<div class="hd">${d}</div>`).join("");
-    for (let i = 0; i < 28; i++) {
-      const d = new Date(gridStart);
-      d.setDate(gridStart.getDate() + i);
-      const iso = d.toISOString().slice(0, 10);
-      const e = map[iso];
-      let cls = "cell";
-      let txt = String(d.getDate());
-      if (e) {
-        if (e.training?.status === "complete" || e.type === "train") cls += " train";
-        else cls += " rest";
-      }
-      if (iso === todayISO()) cls += " today";
-      html += `<div class="${cls}" title="${iso}">${txt}</div>`;
+    // re-observe newly injected journal reveals
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((en) => {
+            if (en.isIntersecting) {
+              en.target.classList.add("in");
+              io.unobserve(en.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      $$(".j-entry.reveal", feed).forEach((n) => io.observe(n));
+    } else {
+      $$(".j-entry.reveal", feed).forEach((n) => n.classList.add("in"));
     }
-    el.innerHTML = html;
   }
 
   document.addEventListener("DOMContentLoaded", boot);
