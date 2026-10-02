@@ -1,10 +1,23 @@
-/* FIT LIFE · COMMAND — dashboard runtime */
+/* FIT LIFE · dashboard runtime — SpaceX minimal palette */
 (function () {
   "use strict";
 
   const LS_HABITS = "fitlife.habits.v1";
   const LS_NOTES = "fitlife.notes.v1";
   const LS_CHECKS = "fitlife.checks.v1";
+
+  /* Monochrome + single accent */
+  const C = {
+    white: "#ffffff",
+    soft: "rgba(255,255,255,0.55)",
+    dim: "rgba(255,255,255,0.12)",
+    track: "rgba(255,255,255,0.08)",
+    blue: "#3d7eff",
+    blueSoft: "rgba(61,126,255,0.35)",
+    blueFill: "rgba(61,126,255,0.12)",
+    warn: "rgba(196,163,90,0.55)",
+    gray: "rgba(255,255,255,0.28)",
+  };
 
   const state = {
     profile: null,
@@ -42,7 +55,6 @@
   }
 
   function todayISO() {
-    // HKT display date — box is already HKT
     const d = new Date();
     const y = d.getFullYear();
     const m = String(d.getMonth() + 1).padStart(2, "0");
@@ -97,14 +109,12 @@
         btn.classList.add("active");
         const id = btn.dataset.section;
         $$(".section").forEach((s) => s.classList.toggle("active", s.id === id));
-        // lazy chart resize
         Object.values(state.charts).forEach((c) => c && c.resize && c.resize());
       });
     });
   }
 
   function restoreLocal() {
-    // habits
     try {
       const habits = JSON.parse(localStorage.getItem(LS_HABITS) || "{}");
       $$(".chip[data-habit]").forEach((chip) => {
@@ -191,7 +201,7 @@
         datasets: [
           {
             data: [Math.min(pct, 1), remain],
-            backgroundColor: [color, "rgba(255,255,255,0.06)"],
+            backgroundColor: [color, C.track],
             borderWidth: 0,
             hoverOffset: 0,
           },
@@ -233,10 +243,10 @@
     const dateLabel = entry?.date === todayISO() ? "今日 TODAY" : `最新 ${entry?.date || "—"}`;
     $("#kpi-hint").textContent = dateLabel + (incomplete ? " · partial" : "");
 
-    drawRing("ring-kcal", kcal, kcalTarget, "#00f5ff");
-    drawRing("ring-protein", protein, proteinTarget, "#b8ff3c");
-    drawRing("ring-steps", steps || 0, stepsTarget, "#ff00aa");
-    drawRing("ring-sleep", sleep || 0, sleepTarget, "#8b5cff");
+    drawRing("ring-kcal", kcal, kcalTarget, C.white);
+    drawRing("ring-protein", protein, proteinTarget, C.soft);
+    drawRing("ring-steps", steps || 0, stepsTarget, C.blue);
+    drawRing("ring-sleep", sleep || 0, sleepTarget, C.gray);
   }
 
   function renderWeekPlan(p) {
@@ -244,7 +254,7 @@
     el.innerHTML = (p.training.thisWeek || [])
       .map((d) => {
         const cls = d.status === "done" ? "done" : "planned";
-        const st = d.status === "done" ? "✓ COMPLETE" : "◇ PLANNED";
+        const st = d.status === "done" ? "COMPLETE" : "PLANNED";
         return `<div class="day-card ${cls}">
           <div class="d">${d.date} · ${d.day}</div>
           <div class="w">WORKOUT ${d.workout}</div>
@@ -323,7 +333,6 @@
     $("#comp-meta").textContent = `官方基準 ${b.date} ${b.time} · ${b.source} · ${b.note}`;
     $("#comp-prescale").textContent = `先前自報 ${pre.date}：${pre.weightKg} kg（${pre.note}）`;
 
-    // weight trend chart
     const entries = state.log.entries.filter((e) => e.weightKg != null);
     const labels = entries.map((e) => e.date.slice(5));
     const weights = entries.map((e) => e.weightKg);
@@ -331,12 +340,13 @@
       {
         label: "體重 kg",
         data: weights,
-        borderColor: "#00f5ff",
-        backgroundColor: "rgba(0,245,255,0.15)",
+        borderColor: C.white,
+        backgroundColor: "rgba(255,255,255,0.06)",
         tension: 0.35,
         fill: true,
-        pointRadius: 5,
-        pointBackgroundColor: "#b8ff3c",
+        pointRadius: 4,
+        pointBackgroundColor: C.white,
+        borderWidth: 1.5,
       },
     ]);
 
@@ -345,20 +355,21 @@
       {
         label: "體脂 %",
         data: bfEntries.map((e) => e.bodyComp.bodyFatPct),
-        borderColor: "#ff00aa",
-        backgroundColor: "rgba(255,0,170,0.12)",
+        borderColor: C.blue,
+        backgroundColor: C.blueFill,
         tension: 0.35,
         fill: true,
-        pointRadius: 5,
-        pointBackgroundColor: "#ff00aa",
+        pointRadius: 4,
+        pointBackgroundColor: C.blue,
+        borderWidth: 1.5,
       },
     ]);
   }
 
   function chartDefaults() {
-    Chart.defaults.color = "#7a8ba8";
-    Chart.defaults.borderColor = "rgba(0,245,255,0.08)";
-    Chart.defaults.font.family = "'JetBrains Mono', monospace";
+    Chart.defaults.color = "#6b6b6b";
+    Chart.defaults.borderColor = "rgba(255,255,255,0.06)";
+    Chart.defaults.font.family = "Inter, system-ui, sans-serif";
     Chart.defaults.font.size = 11;
   }
 
@@ -375,8 +386,8 @@
         maintainAspectRatio: false,
         plugins: { legend: { display: datasets.length > 1, labels: { boxWidth: 12 } } },
         scales: {
-          x: { grid: { color: "rgba(0,245,255,0.05)" } },
-          y: { grid: { color: "rgba(0,245,255,0.05)" }, beginAtZero: false },
+          x: { grid: { color: "rgba(255,255,255,0.04)" } },
+          y: { grid: { color: "rgba(255,255,255,0.04)" }, beginAtZero: false },
         },
       },
     });
@@ -396,7 +407,7 @@
         plugins: { legend: { display: datasets.length > 1, labels: { boxWidth: 12 } } },
         scales: {
           x: { grid: { display: false } },
-          y: { grid: { color: "rgba(0,245,255,0.05)" }, beginAtZero: true },
+          y: { grid: { color: "rgba(255,255,255,0.04)" }, beginAtZero: true },
         },
       },
     });
@@ -440,9 +451,9 @@
         label: "kcal (est)",
         data: entries.map((e) => mid(e.kcal)),
         backgroundColor: entries.map((e) =>
-          e.kcal?.incomplete ? "rgba(255,176,32,0.45)" : "rgba(0,245,255,0.55)"
+          e.kcal?.incomplete ? C.warn : "rgba(255,255,255,0.55)"
         ),
-        borderRadius: 6,
+        borderRadius: 0,
       },
     ]);
     makeBarChart("chart-protein", labels, [
@@ -450,9 +461,9 @@
         label: "protein g",
         data: entries.map((e) => mid(e.proteinG)),
         backgroundColor: entries.map((e) =>
-          e.proteinG?.incomplete ? "rgba(255,176,32,0.45)" : "rgba(184,255,60,0.55)"
+          e.proteinG?.incomplete ? C.warn : C.blueSoft
         ),
-        borderRadius: 6,
+        borderRadius: 0,
       },
     ]);
   }
@@ -464,20 +475,21 @@
       {
         label: "steps",
         data: entries.map((e) => e.steps),
-        backgroundColor: "rgba(255,0,170,0.5)",
-        borderRadius: 6,
+        backgroundColor: "rgba(255,255,255,0.4)",
+        borderRadius: 0,
       },
     ]);
     makeLineChart("chart-sleep", labels, [
       {
         label: "sleep h",
         data: entries.map((e) => e.sleepH),
-        borderColor: "#8b5cff",
-        backgroundColor: "rgba(139,92,255,0.15)",
+        borderColor: C.blue,
+        backgroundColor: C.blueFill,
         tension: 0.35,
         fill: true,
         spanGaps: true,
         pointRadius: 4,
+        borderWidth: 1.5,
       },
     ]);
   }
@@ -515,13 +527,10 @@
     const el = $("#heat-cal");
     const entries = state.log.entries || [];
     const map = Object.fromEntries(entries.map((e) => [e.date, e]));
-    // show from start date through +20 days or so
     const start = state.goals.start;
     const days = ["一", "二", "三", "四", "五", "六", "日"];
-    // find weekday of start (Mon=0 if we use JS: getDay Sun=0)
     const startDate = new Date(start + "T12:00:00");
-    // align to Monday
-    let dow = startDate.getDay(); // 0 Sun
+    let dow = startDate.getDay();
     const mondayOffset = dow === 0 ? -6 : 1 - dow;
     const gridStart = new Date(startDate);
     gridStart.setDate(gridStart.getDate() + mondayOffset);

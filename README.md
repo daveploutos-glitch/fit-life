@@ -1,9 +1,9 @@
 # FIT LIFE · COMMAND
 
-Chi Wai 個人健身／健康生活儀表板（cyberpunk neon HUD）。  
+Chi Wai 個人健身／健康生活儀表板（SpaceX-inspired minimal cinematic）。  
 線上：**https://daveploutos-glitch.github.io/fit-life/**
 
-架構靈感來自 CFA L2 cards 靜態站（GitHub Pages + JSON 資料），但視覺完全不同：暗底霓虹、玻璃面板、進度環、Chart.js。
+架構靈感來自 CFA L2 cards 靜態站（GitHub Pages + JSON 資料），但視覺完全不同：近黑底、粗體排版、稀疏導航、Chart.js 單色調。
 
 ## 開啟
 
@@ -15,7 +15,7 @@ Chi Wai 個人健身／健康生活儀表板（cyberpunk neon HUD）。
 | 路徑 | 說明 |
 |---|---|
 | `index.html` | 主頁（Trad Chinese UI + English tech accents）|
-| `styles.css` / `app.js` | 霓虹 HUD 樣式與邏輯 |
+| `styles.css` / `app.js` | SpaceX minimal 樣式與邏輯 |
 | `data/profile.json` | 個人檔、基準體組成、訓練模板 A/B、每日目標 |
 | `data/goals.json` | 6 個月計劃、分期、里程碑、習慣芯片 |
 | `data/log.json` | 每日記錄（體重、步數、訓練、飲食估計、日誌）|
