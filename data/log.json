@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-02 09:20",
+  "generated": "2026-10-02 22:50",
   "tz": "HKT",
   "source": "hand-seeded from /home/box/fitness/log.md",
   "entries": [
@@ -272,37 +272,76 @@
       "date": "2026-10-02",
       "weekday": "五",
       "type": "rest",
-      "partial": true,
       "weightKg": null,
       "steps": null,
-      "sleepH": null,
-      "training": null,
-      "kcal": {
-        "min": 220,
-        "max": 260,
-        "est": 240,
-        "incomplete": true
-      },
-      "proteinG": {
-        "min": 17,
-        "max": 18,
-        "est": 17.5,
-        "incomplete": true
-      },
-      "hunger": null,
-      "mood": null,
-      "freeMeal": false,
-      "meals": [
-        {
-          "time": "09:14",
-          "name": "早餐",
-          "detail": "Chobani Feel Fit 士多啤梨希臘乳酪袋裝 140g + 香蕉 + 黑咖啡",
-          "kcal": 240,
-          "proteinG": 17.5
+      "sleepH": 7,
+      "energy": "tired_light",
+      "notes": "膊頭前日練後緊；斜機 Zone2；听日 Sat Workout B",
+      "training": {
+        "workout": null,
+        "cardio": {
+          "type": "incline_walk",
+          "time": "38:30",
+          "distance": 2.31,
+          "kcalMachine": 302.7
         }
-      ],
-      "notes": "休息日 · 記錄尚在進行中。",
-      "journal": "休息日（partial）· 早餐 ~220–260 kcal / 17–18g 蛋白"
+      },
+      "nutrition": {
+        "kcal": {
+          "min": 1750,
+          "max": 2250
+        },
+        "proteinG": {
+          "min": 185,
+          "max": 250
+        },
+        "meals": [
+          {
+            "name": "早餐",
+            "items": "Chobani 士多啤梨袋裝140g + 香蕉 + 黑咖啡",
+            "kcal": {
+              "min": 220,
+              "max": 260
+            },
+            "proteinG": {
+              "min": 17,
+              "max": 18
+            }
+          },
+          {
+            "name": "午餐",
+            "items": "雞胸2 + 西蘭花椰菜花車厘茄粟米",
+            "kcal": {
+              "min": 450,
+              "max": 600
+            },
+            "proteinG": {
+              "min": 70,
+              "max": 90
+            }
+          },
+          {
+            "name": "蛋白飲",
+            "items": "Namyang TakeFit Monster 350ml",
+            "kcal": 186,
+            "proteinG": 43
+          },
+          {
+            "name": "晚餐譚仔",
+            "items": "雞肉+鯇魚+清湯魚蛋生菜底+三色飯半份+BBQ羊架3",
+            "kcal": {
+              "min": 900,
+              "max": 1200
+            },
+            "proteinG": {
+              "min": 55,
+              "max": 100
+            }
+          }
+        ]
+      },
+      "hungerUrge": null,
+      "mood": null
     }
   ]
 }
