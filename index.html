@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#05070d" />
+  <meta name="description" content="FIT LIFE · Chi Wai fitness command dashboard — neon HUD" />
+  <title>FIT AS FUCK · COMMAND</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="wrap" id="app">
+    <header class="topbar hud-frame">
+      <div class="brand">
+        <div class="tag">FIT AS FUCK // SYS.ONLINE</div>
+        <h1>FIT LIFE</h1>
+        <div class="sub" id="brand-sub">載入中…</div>
+      </div>
+      <div class="meta-pills">
+        <span class="pill" id="pill-phase">—</span>
+        <span class="pill lime" id="pill-weight">—</span>
+        <span class="pill mag" id="pill-bf">—</span>
+        <span class="pill" id="pill-date">—</span>
+      </div>
+    </header>
+
+    <nav class="nav" aria-label="sections">
+      <button type="button" class="active" data-section="sec-home">儀表板 HUD</button>
+      <button type="button" data-section="sec-goals">目標 GOALS</button>
+      <button type="button" data-section="sec-body">體組成 BODY</button>
+      <button type="button" data-section="sec-train">訓練 TRAIN</button>
+      <button type="button" data-section="sec-food">營養 NUTRI</button>
+      <button type="button" data-section="sec-move">步數·睡眠</button>
+      <button type="button" data-section="sec-journal">日誌 LOG</button>
+    </nav>
+
+    <!-- HOME -->
+    <section id="sec-home" class="section active">
+      <div class="panel hud-frame">
+        <div class="panel-head">
+          <h2>今日目標 vs 實績</h2>
+          <span class="hint" id="kpi-hint">—</span>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi hud-frame">
+            <div class="label">熱量 KCAL</div>
+            <div class="ring-wrap">
+              <canvas id="ring-kcal" width="96" height="96"></canvas>
+              <div class="ring-center"><span class="val" id="kpi-kcal-val">—</span><span class="unit">kcal</span></div>
+            </div>
+            <div class="target" id="kpi-kcal-tgt">—</div>
+          </div>
+          <div class="kpi hud-frame">
+            <div class="label">蛋白質 PROTEIN</div>
+            <div class="ring-wrap">
+              <canvas id="ring-protein" width="96" height="96"></canvas>
+              <div class="ring-center"><span class="val" id="kpi-protein-val">—</span><span class="unit">g</span></div>
+            </div>
+            <div class="target" id="kpi-protein-tgt">—</div>
+          </div>
+          <div class="kpi hud-frame">
+            <div class="label">步數 STEPS</div>
+            <div class="ring-wrap">
+              <canvas id="ring-steps" width="96" height="96"></canvas>
+              <div class="ring-center"><span class="val" id="kpi-steps-val">—</span><span class="unit">steps</span></div>
+            </div>
+            <div class="target" id="kpi-steps-tgt">—</div>
+          </div>
+          <div class="kpi hud-frame">
+            <div class="label">睡眠 SLEEP</div>
+            <div class="ring-wrap">
+              <canvas id="ring-sleep" width="96" height="96"></canvas>
+              <div class="ring-center"><span class="val" id="kpi-sleep-val">—</span><span class="unit">hours</span></div>
+            </div>
+            <div class="target" id="kpi-sleep-tgt">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="panel hud-frame">
+          <div class="panel-head">
+            <h2>本週訓練計劃</h2>
+            <span class="hint">PHASE 1 A/B</span>
+          </div>
+          <div class="week-plan" id="week-plan"></div>
+          <p class="hint" id="week-note" style="margin-top:12px;color:var(--muted);font-size:0.8rem"></p>
+        </div>
+        <div class="panel hud-frame">
+          <div class="panel-head">
+            <h2>習慣芯片 STREAK</h2>
+            <span class="hint">點擊切換 · localStorage</span>
+          </div>
+          <div class="chips" id="habit-chips"></div>
+          <div class="note-box" style="margin-top:16px">
+            <label for="local-notes" style="font-size:0.75rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase">私人備註（本機）</label>
+            <textarea id="local-notes" placeholder="寫低今日感覺、要帶去 gym 嘅嘢…"></textarea>
+            <button type="button" class="btn" id="save-notes">SAVE NOTE</button>
+            <span id="notes-status" style="margin-left:8px;font-family:var(--font-mono);font-size:11px;color:var(--lime)"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel hud-frame">
+        <div class="panel-head">
+          <h2>基準快覽 BASELINE</h2>
+          <span class="hint">howbodyfit 2026-10-01</span>
+        </div>
+        <div class="stat-row" id="home-baseline-stats">
+          <div class="stat"><div class="k">體重</div><div class="v cyan">102.6</div><div class="s">kg official</div></div>
+          <div class="stat"><div class="k">體脂</div><div class="v mag">29.8%</div><div class="s">30.6 kg fat</div></div>
+          <div class="stat"><div class="k">骨骼肌</div><div class="v">41.3</div><div class="s">kg</div></div>
+          <div class="stat"><div class="k">BMR</div><div class="v cyan">1,925</div><div class="s">kcal</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOALS -->
+    <section id="sec-goals" class="section">
+      <div class="panel hud-frame">
+        <div class="panel-head">
+          <h2>六個月任務時軸</h2>
+          <span class="hint" id="goal-range">—</span>
+        </div>
+        <div style="margin-bottom:8px;font-family:var(--font-mono);font-size:12px;color:var(--lime)" id="goal-progress-txt">—</div>
+        <div style="height:10px;border-radius:999px;background:rgba(255,255,255,0.06);overflow:hidden;border:1px solid var(--border)">
+          <div id="goal-progress-bar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--cyan),var(--lime),var(--magenta));box-shadow:var(--glow-cyan);transition:width 0.8s ease"></div>
+        </div>
+        <div class="stat-row" style="margin-top:16px">
+          <div class="stat"><div class="k">Summer body</div><div class="v cyan" id="goal-summer" style="font-size:0.95rem">—</div></div>
+          <div class="stat"><div class="k">6 個月目標</div><div class="v" id="goal-6m" style="font-size:0.95rem">—</div></div>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="panel hud-frame">
+          <div class="panel-head"><h2>分期 PHASES</h2></div>
+          <div class="timeline" id="phase-timeline"></div>
+        </div>
+        <div class="panel hud-frame">
+          <div class="panel-head"><h2>里程碑 MILESTONES</h2></div>
+          <div class="timeline" id="milestones"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section id="sec-body" class="section">
+      <div class="panel hud-frame">
+        <div class="panel-head">
+          <h2>官方體組成基準</h2>
+          <span class="hint">howbodyfit</span>
+        </div>
+        <p style="font-size:0.8rem;color:var(--muted);margin:0 0 12px" id="comp-meta"></p>
+        <div class="comp-grid" id="comp-grid"></div>
+        <p style="font-size:0.78rem;color:var(--amber);margin:14px 0 0" id="comp-prescale"></p>
+      </div>
+      <div class="grid-2">
+        <div class="panel hud-frame">
+          <div class="panel-head"><h2>體重趨勢 WEIGHT</h2></div>
+          <div class="chart-box"><canvas id="chart-weight"></canvas></div>
+        </div>
+        <div class="panel hud-frame">
+          <div class="panel-head"><h2>體脂趨勢 BF%</h2><span class="hint">未來量度會疊加</span></div>
+          <div class="chart-box"><canvas id="chart-bf"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAIN -->
+    <section id="sec-train" class="section">
+      <div class="grid-2">
+        <div class="panel hud-frame">
+          <div class="panel-head">
+            <h2>Workout A · 記錄</h2>
+            <span class="hint" id="workout-a-meta">—</span>
+          </div>
+          <ul class="ex-list" id="workout-a-log"></ul>
+        </div>
+        <div class="panel hud-frame">
+          <div class="panel-head">
+            <h2>Workout B · 計劃</h2>
+            <span class="hint" id="workout-b-meta">—</span>
+          </div>
+          <ul class="ex-list" id="workout-b-plan"></ul>
+        </div>
+      </div>
+      <div class="panel hud-frame">
+        <div class="panel-head"><h2>訓練日熱圖 HEAT</h2><span class="hint">綠 = train · 青 = logged rest</span></div>
+        <div class="heat" id="heat-cal"></div>
+      </div>
+    </section>
+
+    <!-- NUTRITION -->
+    <section id="sec-food" class="section">
+      <div class="grid-2">
+        <div class="panel hud-frame">
+          <div class="panel-head"><h2>每日熱量 KCAL</h2><span class="hint">琥珀色 = 未完整</span></div>
+          <div class="chart-box"><canvas id="chart-kcal"></canvas></div>
+        </div>
+        <div class="panel hud-frame">
+          <div class="panel-head"><h2>每日蛋白質 PROTEIN</h2></div>
+          <div class="chart-box"><canvas id="chart-protein"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEPS / SLEEP -->
+    <section id="sec-move" class="section">
+      <div class="grid-2">
+        <div class="panel hud-frame">
+          <div class="panel-head"><h2>步數 STEPS</h2><span class="hint">目標 7–8k</span></div>
+          <div class="chart-box"><canvas id="chart-steps"></canvas></div>
+        </div>
+        <div class="panel hud-frame">
+          <div class="panel-head"><h2>睡眠 SLEEP</h2><span class="hint">目標 7h+</span></div>
+          <div class="chart-box"><canvas id="chart-sleep"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNAL -->
+    <section id="sec-journal" class="section">
+      <div class="panel hud-frame">
+        <div class="panel-head"><h2>每日日誌 FEED</h2><span class="hint">from data/log.json</span></div>
+        <div class="feed" id="journal-feed"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div id="footer-meta">—</div>
+      <div style="margin-top:4px">
+        FIT AS FUCK · COMMAND · Chi Wai ·
+        <a href="https://github.com/daveploutos-glitch/fit-life">repo</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

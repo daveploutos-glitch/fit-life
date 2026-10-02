@@ -1,0 +1,308 @@
+{
+  "generated": "2026-10-02 09:20",
+  "tz": "HKT",
+  "source": "hand-seeded from /home/box/fitness/log.md",
+  "entries": [
+    {
+      "date": "2026-09-28",
+      "weekday": "一",
+      "type": "baseline",
+      "weightKg": 108.0,
+      "weightNote": "pre-scale self-report estimate",
+      "steps": 7171,
+      "stepsKm": 5.9,
+      "sleepH": null,
+      "training": null,
+      "kcal": {
+        "min": 1750,
+        "max": 1760,
+        "est": 1755
+      },
+      "proteinG": {
+        "min": 188,
+        "max": 188,
+        "est": 188
+      },
+      "hunger": null,
+      "mood": null,
+      "freeMeal": false,
+      "meals": [
+        {
+          "time": "09:19",
+          "name": "早餐",
+          "detail": "Chobani 香蕉低脂乳酪 150g + 香蕉 + 黑咖啡",
+          "kcal": 200,
+          "proteinG": 16
+        },
+        {
+          "time": "09:45",
+          "name": "補充品",
+          "detail": "California Gold Nutrition Omega 800 魚油 2 粒"
+        },
+        {
+          "time": "12:14",
+          "name": "午餐",
+          "detail": "雞胸 ~250g 熟 + 粟米南瓜西蘭花椰菜花番茄",
+          "kcal": 650,
+          "proteinG": 80
+        },
+        {
+          "time": "21:54",
+          "name": "小食",
+          "detail": "Labnosh 蛋白飲 350ml",
+          "kcal": 135,
+          "proteinG": 27
+        },
+        {
+          "time": "22:31",
+          "name": "晚餐",
+          "detail": "炒牛肉 200–250g + 雜穀飯一拳 + 泡菜 + 韓式辣醬",
+          "kcal": 775,
+          "proteinG": 65
+        }
+      ],
+      "notes": "基線日。男 27歲 183cm，估計體脂 30%+，完全新手。目標 6 個月減 12–16kg。體重磅仲買緊。",
+      "journal": "基線日 · 未開 gym · 全日約 1,750 kcal / 188g 蛋白 · 步數 7,171"
+    },
+    {
+      "date": "2026-09-29",
+      "weekday": "二",
+      "type": "rest",
+      "weightKg": null,
+      "steps": null,
+      "stepsNote": "incomplete",
+      "sleepH": null,
+      "training": null,
+      "kcal": {
+        "min": 2050,
+        "max": 2430,
+        "est": 2240
+      },
+      "proteinG": {
+        "min": 190,
+        "max": 230,
+        "est": 210
+      },
+      "hunger": null,
+      "mood": null,
+      "freeMeal": true,
+      "meals": [
+        {
+          "time": "10:01",
+          "name": "早餐",
+          "detail": "香蕉 + 無糖綠茶",
+          "kcal": 105,
+          "proteinG": 1
+        },
+        {
+          "time": "12:14",
+          "name": "午餐",
+          "detail": "雞胸 ~250g + 雜菜",
+          "kcal": 600,
+          "proteinG": 78
+        },
+        {
+          "time": "17:42",
+          "name": "小食",
+          "detail": "DASHIN Protein Meal Replacement 25g 水沖",
+          "kcal": 94,
+          "proteinG": 17
+        },
+        {
+          "time": "18:59",
+          "name": "晚餐 · 大排檔自由餐",
+          "detail": "椒鹽鮮魷1 + 黑椒薯牛1+1 + 啤×2 + 脆皮雞3去皮 + 牛膀4 + 菜 + 肉餅3匙 + 粟米魚肚羹1碗",
+          "kcal": 1100,
+          "proteinG": 110
+        }
+      ],
+      "notes": "老細邀請大排檔，作本週自由餐之一。唔補償限制。",
+      "journal": "休息日 · 大排檔自由餐 · 全日估 2,050–2,430 kcal / 190–230g 蛋白"
+    },
+    {
+      "date": "2026-09-30",
+      "weekday": "三",
+      "type": "rest",
+      "weightKg": null,
+      "steps": null,
+      "sleepH": null,
+      "training": null,
+      "trainingNote": "Workout A 改去 10/1（演唱會）",
+      "kcal": {
+        "min": 190,
+        "max": 210,
+        "est": 200,
+        "incomplete": true
+      },
+      "proteinG": {
+        "min": 16,
+        "max": 16,
+        "est": 16,
+        "incomplete": true
+      },
+      "hunger": null,
+      "mood": null,
+      "freeMeal": false,
+      "meals": [
+        {
+          "time": "09:13",
+          "name": "早餐",
+          "detail": "Chobani Fit 草莓乳酪 150g + 香蕉 + 黑咖啡（蛋未食）",
+          "kcal": 200,
+          "proteinG": 16
+        }
+      ],
+      "notes": "今晚睇 Lany 演唱會。原 Phase 1 Wed A → 本週改 Thu A / Sat B / Sun A。",
+      "journal": "休息（演唱會）· 只記到早餐 ~200 kcal / 16g · Workout A 移至 10/1"
+    },
+    {
+      "date": "2026-10-01",
+      "weekday": "四",
+      "type": "train",
+      "weightKg": 102.6,
+      "bodyComp": {
+        "source": "howbodyfit",
+        "time": "15:54",
+        "bmi": 30.6,
+        "bodyFatPct": 29.8,
+        "fatMassKg": 30.6,
+        "skeletalMuscleKg": 41.3,
+        "ffmKg": 72.0,
+        "visceralFat": 12,
+        "whr": 0.97,
+        "bmr": 1925,
+        "metabolicAge": 31,
+        "score": 88,
+        "deviceIdealKg": 93.7
+      },
+      "steps": 7523,
+      "sleepH": null,
+      "training": {
+        "workout": "A",
+        "status": "complete",
+        "firstTime": true,
+        "exercises": [
+          {
+            "id": "goblet_squat",
+            "name": "Goblet squat",
+            "nameZh": "高腳杯深蹲",
+            "sets": 3,
+            "reps": 10,
+            "kg": 18,
+            "note": null
+          },
+          {
+            "id": "db_bench",
+            "name": "DB bench",
+            "nameZh": "啞鈴臥推",
+            "sets": 3,
+            "reps": 10,
+            "kg": 18,
+            "perSide": true
+          },
+          {
+            "id": "cable_row",
+            "name": "Seated cable row",
+            "nameZh": "坐姿拉索划船",
+            "sets": 3,
+            "reps": 12,
+            "kg": 37.5,
+            "grip": "narrow"
+          },
+          {
+            "id": "db_rdl",
+            "name": "DB RDL",
+            "nameZh": "啞鈴羅馬尼亞硬拉",
+            "sets": 3,
+            "reps": 10,
+            "kg": 18,
+            "perSide": true
+          },
+          {
+            "id": "plank",
+            "name": "Plank",
+            "nameZh": "平板支撐",
+            "sets": 3,
+            "reps": "30s",
+            "kg": null
+          }
+        ]
+      },
+      "kcal": {
+        "min": 1900,
+        "max": 2400,
+        "est": 2150
+      },
+      "proteinG": {
+        "min": 130,
+        "max": 180,
+        "est": 155
+      },
+      "hunger": null,
+      "mood": 7,
+      "freeMeal": false,
+      "meals": [
+        {
+          "name": "練後",
+          "detail": "Protea Protein Drink 菊花茶 500ml",
+          "kcal": 85,
+          "proteinG": 20
+        },
+        {
+          "name": "午餐",
+          "detail": "紅蘿蔔炒豬頸肉 + 羊架1 + 泡菜 + 三色飯",
+          "kcal": 800,
+          "proteinG": 65
+        },
+        {
+          "name": "晚餐",
+          "detail": "Ribs 1 + 少許薯條 + 啤酒 1",
+          "kcal": 825,
+          "proteinG": 42
+        },
+        {
+          "name": "活動",
+          "detail": "女朋友 · 長沙泳灘游泳 + 沙灘步行"
+        }
+      ],
+      "notes": "正式起點體重 102.6 kg（howbodyfit）。Workout A 首次全日完成。",
+      "journal": "⚔ Workout A COMPLETE · 體脂磅基準 102.6kg / 29.8% BF · 步數 7,523 · 飲食粗估 1,900–2,400 kcal"
+    },
+    {
+      "date": "2026-10-02",
+      "weekday": "五",
+      "type": "rest",
+      "partial": true,
+      "weightKg": null,
+      "steps": null,
+      "sleepH": null,
+      "training": null,
+      "kcal": {
+        "min": 220,
+        "max": 260,
+        "est": 240,
+        "incomplete": true
+      },
+      "proteinG": {
+        "min": 17,
+        "max": 18,
+        "est": 17.5,
+        "incomplete": true
+      },
+      "hunger": null,
+      "mood": null,
+      "freeMeal": false,
+      "meals": [
+        {
+          "time": "09:14",
+          "name": "早餐",
+          "detail": "Chobani Feel Fit 士多啤梨希臘乳酪袋裝 140g + 香蕉 + 黑咖啡",
+          "kcal": 240,
+          "proteinG": 17.5
+        }
+      ],
+      "notes": "休息日 · 記錄尚在進行中。",
+      "journal": "休息日（partial）· 早餐 ~220–260 kcal / 17–18g 蛋白"
+    }
+  ]
+}

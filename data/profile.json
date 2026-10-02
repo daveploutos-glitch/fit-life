@@ -1,0 +1,77 @@
+{
+  "name": "Chi Wai",
+  "nameZh": "Chi Wai",
+  "sex": "male",
+  "age": 27,
+  "heightCm": 183,
+  "coach": "Fit as Fuck",
+  "program": "FIT AS FUCK · COMMAND",
+  "tz": "Asia/Hong_Kong",
+  "targets": {
+    "kcal": { "min": 2000, "max": 2100, "label": "熱量" },
+    "proteinG": { "min": 170, "max": 180, "label": "蛋白質" },
+    "steps": { "min": 7000, "max": 8000, "label": "步數" },
+    "sleepH": { "min": 7, "label": "睡眠" }
+  },
+  "training": {
+    "phase": 1,
+    "phaseName": "Phase 1 · 基礎期",
+    "split": "Full-body A/B",
+    "normalDays": ["Wed", "Sat", "Sun"],
+    "thisWeek": [
+      { "date": "2026-10-01", "day": "Thu", "workout": "A", "status": "done" },
+      { "date": "2026-10-03", "day": "Sat", "workout": "B", "status": "planned" },
+      { "date": "2026-10-04", "day": "Sun", "workout": "A", "status": "planned" }
+    ],
+    "note": "原 Phase 1：Wed A / Sat B / Sun A。本週改為 Thu A / Sat B / Sun A（演唱會調整）"
+  },
+  "baseline": {
+    "date": "2026-10-01",
+    "time": "15:54",
+    "source": "howbodyfit",
+    "weightKg": 102.6,
+    "bmi": 30.6,
+    "bodyFatPct": 29.8,
+    "fatMassKg": 30.6,
+    "skeletalMuscleKg": 41.3,
+    "ffmKg": 72.0,
+    "visceralFat": 12,
+    "whr": 0.97,
+    "bmr": 1925,
+    "metabolicAge": 31,
+    "score": 88,
+    "deviceIdealKg": 93.7,
+    "note": "正式起點體重；取代先前自報 108 kg 估計"
+  },
+  "preScaleEstimate": {
+    "date": "2026-09-28",
+    "weightKg": 108.0,
+    "note": "自報起步估計（未有體脂磅）"
+  },
+  "workouts": {
+    "A": {
+      "name": "Workout A",
+      "nameZh": "訓練 A · 全身",
+      "exercises": [
+        { "id": "goblet_squat", "name": "Goblet squat", "nameZh": "高腳杯深蹲", "sets": 3, "reps": "10" },
+        { "id": "db_bench", "name": "DB bench press", "nameZh": "啞鈴臥推", "sets": 3, "reps": "10" },
+        { "id": "cable_row", "name": "Seated cable row", "nameZh": "坐姿拉索划船", "sets": 3, "reps": "12" },
+        { "id": "db_rdl", "name": "DB Romanian deadlift", "nameZh": "啞鈴羅馬尼亞硬拉", "sets": 3, "reps": "10" },
+        { "id": "plank", "name": "Plank", "nameZh": "平板支撐", "sets": 3, "reps": "30s" }
+      ]
+    },
+    "B": {
+      "name": "Workout B",
+      "nameZh": "訓練 B · 全身",
+      "status": "planned",
+      "plannedDate": "2026-10-03",
+      "exercises": [
+        { "id": "leg_press", "name": "Leg press", "nameZh": "腿推", "sets": 3, "reps": "12", "suggestedKg": "40–60" },
+        { "id": "lat_pulldown", "name": "Lat pulldown", "nameZh": "滑輪下拉", "sets": 3, "reps": "10", "suggestedKg": "30–40" },
+        { "id": "db_shoulder", "name": "Seated DB shoulder press", "nameZh": "坐姿啞鈴肩推", "sets": 3, "reps": "10", "suggestedKg": "light" },
+        { "id": "db_lunges", "name": "DB lunges", "nameZh": "啞鈴弓步", "sets": 2, "reps": "10/side", "suggestedKg": "light" },
+        { "id": "arms", "name": "Biceps curl + Triceps pushdown", "nameZh": "二頭彎舉 + 三頭下壓", "sets": 2, "reps": "12 each", "suggestedKg": "light" }
+      ]
+    }
+  }
+}

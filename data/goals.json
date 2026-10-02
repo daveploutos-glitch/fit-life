@@ -1,0 +1,38 @@
+{
+  "title": "六個月減脂 + 改善體態",
+  "start": "2026-09-28",
+  "end": "2027-03-28",
+  "weeks": 26,
+  "summerBody": {
+    "weightKg": { "min": 87, "max": 90 },
+    "bodyFatPct": { "min": 12, "max": 15 },
+    "horizonMonths": "8–12",
+    "note": "精瘦、飽滿、有線條嘅 summer body（唔係健美選手 size）"
+  },
+  "sixMonth": {
+    "weightLossKg": { "min": 12, "max": 16 },
+    "targetWeightKg": { "min": 92, "max": 96 },
+    "weeklyLossPct": { "min": 0.5, "max": 1.0 },
+    "waistCmDrop": { "min": 8, "max": 12 }
+  },
+  "milestones": [
+    { "week": 4, "date": "2026-10-25", "weightKg": { "min": 103.5, "max": 105.5 }, "focus": "每週 3 次訓練、動作熟練、步數 7–8k 成習慣" },
+    { "week": 12, "date": "2026-12-20", "weightKg": { "min": 99, "max": 101.5 }, "focus": "主要動作明顯加重；腰圍減約 4–7cm" },
+    { "week": 20, "date": "2027-02-14", "weightKg": { "min": 95, "max": 98 }, "focus": "聖誕 + 新年冇失控；飲食習慣自動化" },
+    { "week": 26, "date": "2027-03-28", "weightKg": { "min": 92, "max": 96 }, "focus": "減 12–16kg；腰圍減 8–12cm；再驗身體指標" }
+  ],
+  "phases": [
+    { "id": 1, "name": "Phase 1 · 基礎期", "weeks": "W1–4", "start": "2026-09-28", "end": "2026-10-25", "kcal": "2000–2100", "focus": "學動作、建立習慣、飲食結構" },
+    { "id": 2, "name": "Phase 2 · 漸進超負荷", "weeks": "W5–12", "start": "2026-10-26", "end": "2026-12-20", "kcal": "1900–2100", "focus": "全身 + 上/下肢，逐步加重" },
+    { "id": 3, "name": "Phase 3 · 深化期", "weeks": "W13–20", "start": "2026-12-21", "end": "2027-02-14", "kcal": "≥1800 / 維持週 +400–600", "focus": "聖誕 / 農曆新年維持熱量；其餘繼續減脂" },
+    { "id": 4, "name": "Phase 4 · CFA 衝刺期", "weeks": "W21–26", "start": "2027-02-15", "end": "2027-03-28", "kcal": "細赤字或維持", "focus": "最低有效劑量，保肌肉、保力量、保睡眠" }
+  ],
+  "habits": [
+    { "id": "train3", "label": "每週 3 次訓練", "icon": "⚔" },
+    { "id": "steps", "label": "步數 7–8k", "icon": "✶" },
+    { "id": "sleep", "label": "睡眠 7h+", "icon": "☽" },
+    { "id": "protein", "label": "蛋白 170–180g", "icon": "◆" },
+    { "id": "kcal", "label": "熱量 2.0–2.1k", "icon": "⬡" },
+    { "id": "log", "label": "每日填 log", "icon": "▣" }
+  ]
+}
