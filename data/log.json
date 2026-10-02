@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-02 22:50",
+  "generated": "2026-10-02 22:52",
   "tz": "HKT",
   "source": "hand-seeded from /home/box/fitness/log.md",
   "entries": [
@@ -275,10 +275,23 @@
       "weightKg": null,
       "steps": null,
       "sleepH": 7,
+      "kcal": {
+        "min": 1750,
+        "max": 2250,
+        "est": 2000
+      },
+      "proteinG": {
+        "min": 185,
+        "max": 250,
+        "est": 217
+      },
+      "partial": false,
       "energy": "tired_light",
-      "notes": "膊頭前日練後緊；斜機 Zone2；听日 Sat Workout B",
+      "notes": "膊頭前日練後緊；斜機 Zone2；明日 Sat Workout B",
+      "journal": "休息日。\n早餐：Chobani 士多啤梨袋裝140g + 香蕉 + 黑咖啡（220–260 kcal · 17–18g）；午餐：雞胸2 + 西蘭花椰菜花車厘茄粟米（450–600 kcal · 70–90g）；蛋白飲：Namyang TakeFit Monster 350ml（186 kcal · 43g）；晚餐譚仔：雞肉+鯇魚+清湯魚蛋生菜底+三色飯半份+BBQ羊架3（900–1200 kcal · 55–100g）。\n斜路機 Zone2：38:30 · 距離 2.31 · 機顯 302.7 kcal（唔計入飲食）。\n尋晚瞓約 7h；今日精神有啲攰、膊頭前日 Workout A 後仍緊。步數等 Shortcuts 電郵。明日 10/3 Workout B。",
       "training": {
         "workout": null,
+        "status": null,
         "cardio": {
           "type": "incline_walk",
           "time": "38:30",
@@ -286,60 +299,50 @@
           "kcalMachine": 302.7
         }
       },
-      "nutrition": {
-        "kcal": {
-          "min": 1750,
-          "max": 2250
-        },
-        "proteinG": {
-          "min": 185,
-          "max": 250
-        },
-        "meals": [
-          {
-            "name": "早餐",
-            "items": "Chobani 士多啤梨袋裝140g + 香蕉 + 黑咖啡",
-            "kcal": {
-              "min": 220,
-              "max": 260
-            },
-            "proteinG": {
-              "min": 17,
-              "max": 18
-            }
+      "meals": [
+        {
+          "name": "早餐",
+          "items": "Chobani 士多啤梨袋裝140g + 香蕉 + 黑咖啡",
+          "kcal": {
+            "min": 220,
+            "max": 260
           },
-          {
-            "name": "午餐",
-            "items": "雞胸2 + 西蘭花椰菜花車厘茄粟米",
-            "kcal": {
-              "min": 450,
-              "max": 600
-            },
-            "proteinG": {
-              "min": 70,
-              "max": 90
-            }
-          },
-          {
-            "name": "蛋白飲",
-            "items": "Namyang TakeFit Monster 350ml",
-            "kcal": 186,
-            "proteinG": 43
-          },
-          {
-            "name": "晚餐譚仔",
-            "items": "雞肉+鯇魚+清湯魚蛋生菜底+三色飯半份+BBQ羊架3",
-            "kcal": {
-              "min": 900,
-              "max": 1200
-            },
-            "proteinG": {
-              "min": 55,
-              "max": 100
-            }
+          "proteinG": {
+            "min": 17,
+            "max": 18
           }
-        ]
-      },
+        },
+        {
+          "name": "午餐",
+          "items": "雞胸2 + 西蘭花椰菜花車厘茄粟米",
+          "kcal": {
+            "min": 450,
+            "max": 600
+          },
+          "proteinG": {
+            "min": 70,
+            "max": 90
+          }
+        },
+        {
+          "name": "蛋白飲",
+          "items": "Namyang TakeFit Monster 350ml",
+          "kcal": 186,
+          "proteinG": 43
+        },
+        {
+          "name": "晚餐譚仔",
+          "items": "雞肉+鯇魚+清湯魚蛋生菜底+三色飯半份+BBQ羊架3",
+          "kcal": {
+            "min": 900,
+            "max": 1200
+          },
+          "proteinG": {
+            "min": 55,
+            "max": 100
+          }
+        }
+      ],
       "hungerUrge": null,
       "mood": null
     }
