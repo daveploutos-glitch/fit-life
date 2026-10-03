@@ -8,7 +8,7 @@ Chi Wai 個人健身任務站 — SpaceX-style **scroll storytelling**（全屏�
 
 固定極簡頂欄 → 長頁全屏章節：
 
-1. **HERO** — goal physique 3D mannequin (auto-rotate / drag) · 87–90 kg · 12–15% · FIT LIFE / 102.6 kg baseline / BEGIN  
+1. **HERO** — realistic CC0 male goal physique (MakeHuman + skin, auto-rotate / drag) · 87–90 kg · 12–15%  
 2. **MISSION** — 6 個月目標敘事與分期  
 3. **TELEMETRY** — 體組成 + 體重 / BF / 步數圖  
 4. **TRAINING** — Workout A mission patch + B 計劃  

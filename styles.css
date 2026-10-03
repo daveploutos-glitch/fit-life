@@ -360,6 +360,7 @@ button { font-family: inherit; }
   justify-content: center;
   pointer-events: none;
 }
+.hero-fallback[hidden] { display: none !important; }
 .hero-fallback-body {
   width: min(180px, 46%);
   height: 92%;

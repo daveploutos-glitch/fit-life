@@ -1,0 +1,20 @@
+FIT LIFE goal physique model
+================================
+
+Mesh: MakeHuman base mesh (hm08) morphed to a young male, high muscle, lean weight.
+Source: https://github.com/makehumancommunity/makehuman
+License: CC0 1.0 Universal (dedicated September 2020).
+Copyright holders at release: Data Collection AB, Joel Palmius, Jonas Hauquier.
+Macro targets also include earlier work by Manuel Bastioni, released as CC0.
+
+Skin texture: "toigo_light_skin_male_bronze" (young_lightskinned_male_diffuse_Bronze)
+Author: Margaret Toigo
+Pack: MakeHuman Community skins02 (skins02_cc0.zip)
+License: CC0 1.0 Universal
+https://static.makehumancommunity.org/assets/assetpacks/skins02.html
+
+The figure is a generic anatomical reference for the 87–90 kg / 12–15% goal.
+It is not a likeness of Chi Wai. Athletic shorts are a clipped slice of the MakeHuman helper-tights shell
+(same CC0 mesh) so the hero stays a physique study rather than a nude render.
+
+Baked file: models/goal-physique.glb
