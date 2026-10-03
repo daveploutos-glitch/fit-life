@@ -20,7 +20,7 @@
     "normalDays": ["Wed", "Sat", "Sun"],
     "thisWeek": [
       { "date": "2026-10-01", "day": "Thu", "workout": "A", "status": "done" },
-      { "date": "2026-10-03", "day": "Sat", "workout": "B", "status": "planned" },
+      { "date": "2026-10-03", "day": "Sat", "workout": "B", "status": "done" },
       { "date": "2026-10-04", "day": "Sun", "workout": "A", "status": "planned" }
     ],
     "note": "原 Phase 1：Wed A / Sat B / Sun A。本週改為 Thu A / Sat B / Sun A（演唱會調整）"
@@ -63,7 +63,7 @@
     "B": {
       "name": "Workout B",
       "nameZh": "訓練 B · 全身",
-      "status": "planned",
+      "status": "done",
       "plannedDate": "2026-10-03",
       "exercises": [
         { "id": "leg_press", "name": "Leg press", "nameZh": "腿推", "sets": 3, "reps": "12", "suggestedKg": "40–60" },

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-02 22:52",
+  "generated": "2026-10-04 01:00",
   "tz": "HKT",
   "source": "hand-seeded from /home/box/fitness/log.md",
   "entries": [
@@ -273,7 +273,7 @@
       "weekday": "五",
       "type": "rest",
       "weightKg": null,
-      "steps": null,
+      "steps": 8658,
       "sleepH": 7,
       "kcal": {
         "min": 1750,
@@ -287,8 +287,8 @@
       },
       "partial": false,
       "energy": "tired_light",
-      "notes": "膊頭前日練後緊；斜機 Zone2；明日 Sat Workout B",
-      "journal": "休息日。\n早餐：Chobani 士多啤梨袋裝140g + 香蕉 + 黑咖啡（220–260 kcal · 17–18g）；午餐：雞胸2 + 西蘭花椰菜花車厘茄粟米（450–600 kcal · 70–90g）；蛋白飲：Namyang TakeFit Monster 350ml（186 kcal · 43g）；晚餐譚仔：雞肉+鯇魚+清湯魚蛋生菜底+三色飯半份+BBQ羊架3（900–1200 kcal · 55–100g）。\n斜路機 Zone2：38:30 · 距離 2.31 · 機顯 302.7 kcal（唔計入飲食）。\n尋晚瞓約 7h；今日精神有啲攰、膊頭前日 Workout A 後仍緊。步數等 Shortcuts 電郵。明日 10/3 Workout B。",
+      "notes": "膊頭前日練後緊；斜機 Zone2；明日 Sat Workout B。步數 8658（Shortcuts 電郵）。",
+      "journal": "休息日。\n早餐：Chobani 士多啤梨袋裝140g + 香蕉 + 黑咖啡（220–260 kcal · 17–18g）；午餐：雞胸2 + 西蘭花椰菜花車厘茄粟米（450–600 kcal · 70–90g）；蛋白飲：Namyang TakeFit Monster 350ml（186 kcal · 43g）；晚餐譚仔：雞肉+鯇魚+清湯魚蛋生菜底+三色飯半份+BBQ羊架3（900–1200 kcal · 55–100g）。\n斜路機 Zone2：38:30 · 距離 2.31 · 機顯 302.7 kcal（唔計入飲食）。\n尋晚瞓約 7h；今日精神有啲攰、膊頭前日 Workout A 後仍緊。步數 8,658（Shortcuts 電郵）。明日 10/3 Workout B。",
       "training": {
         "workout": null,
         "status": null,
@@ -344,7 +344,103 @@
         }
       ],
       "hungerUrge": null,
-      "mood": null
+      "mood": null,
+      "stepsSource": "Shortcuts email"
+    },
+    {
+      "date": "2026-10-03",
+      "weekday": "六",
+      "type": "train",
+      "weightKg": null,
+      "steps": 1720,
+      "stepsSource": "Shortcuts email ~22:30 HKT",
+      "sleepH": 8,
+      "napH": {
+        "min": 3,
+        "max": 4
+      },
+      "training": {
+        "workout": "B",
+        "status": "complete",
+        "exercises": [
+          {
+            "id": "leg_press",
+            "name": "Leg press",
+            "nameZh": "腿推",
+            "sets": 3,
+            "reps": 12,
+            "kg": 60
+          },
+          {
+            "id": "lat_pulldown",
+            "name": "Lat pulldown",
+            "nameZh": "滑輪下拉",
+            "sets": 3,
+            "reps": 12,
+            "kg": 37.5
+          },
+          {
+            "id": "db_shoulder",
+            "name": "Seated DB shoulder press",
+            "nameZh": "坐姿啞鈴肩推",
+            "sets": 3,
+            "reps": 12,
+            "kg": 12
+          },
+          {
+            "id": "db_lunges",
+            "name": "DB lunges",
+            "nameZh": "啞鈴弓步",
+            "sets": 3,
+            "reps": "10/side",
+            "kg": 12
+          },
+          {
+            "id": "arm_curl_machine",
+            "name": "Arm curl machine",
+            "nameZh": "二頭彎舉機",
+            "sets": 2,
+            "reps": "—",
+            "kg": 40,
+            "note": "2 sets assumed; reps not logged"
+          },
+          {
+            "id": "triceps_pushdown",
+            "name": "Triceps pushdown",
+            "nameZh": "三頭下壓",
+            "sets": 2,
+            "reps": "—",
+            "kg": 30,
+            "note": "reps not logged"
+          }
+        ]
+      },
+      "kcal": {
+        "min": 1800,
+        "max": 2400,
+        "est": 2100
+      },
+      "proteinG": {
+        "min": 140,
+        "max": 200,
+        "est": 170
+      },
+      "partial": false,
+      "hunger": null,
+      "mood": null,
+      "freeMeal": false,
+      "meals": [
+        {
+          "name": "午餐",
+          "detail": "氣炸牛扒（去肥）+ 氣炸鯖魚 2 + 少許三色飯 + 泡菜"
+        },
+        {
+          "name": "晚餐",
+          "detail": "生蠔 1 斤 + 脆肉丸片 + 少許飯 + 大量泡菜"
+        }
+      ],
+      "notes": "Workout B 完成。步數 1,720（Shortcuts ~22:30 HKT）。尋晚約 8h；當日午睡約 3–4h。臂彎機組數係假設 2 組，次數未記；三頭下壓 2 組、次數未記。",
+      "journal": "⚔ Workout B COMPLETE：腿推 60kg 3×12；滑輪下拉 37.5kg 3×12；坐姿啞鈴肩推 12kg 3×12；啞鈴弓步 12kg 3×10/side；二頭彎舉機 40kg（假設 2 組，次數未記）；三頭下壓 30kg 2 組（次數未記）。\n午餐：氣炸牛扒（去肥）+ 氣炸鯖魚 2 + 少許三色飯 + 泡菜。晚餐：生蠔 1 斤 + 脆肉丸片 + 少許飯 + 大量泡菜。\n全日粗估約 1,800–2,400 kcal · 蛋白 140–200g。步數 1,720（Shortcuts 電郵 ~22:30 HKT）。尋晚瞓約 8h；當日午睡約 3–4h。"
     }
   ]
 }
