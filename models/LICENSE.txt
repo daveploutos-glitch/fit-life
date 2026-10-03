@@ -13,7 +13,7 @@ Pack: MakeHuman Community skins02 (skins02_cc0.zip)
 License: CC0 1.0 Universal
 https://static.makehumancommunity.org/assets/assetpacks/skins02.html
 
-The baked mesh pushes that male macro past the default muscle slider (lean max-muscle, plus a light delt/chest/ab sculpt on the same vertices) so the hero reads as a defined summer body, still not a likeness.
+The baked mesh is the CC0 young male at lean max-muscle, with only a light delt/chest/ab accent. The waist is the natural male torso, not pinched. Still not a likeness.
 The figure is a generic anatomical reference for the 87–90 kg / 12–15% goal.
 It is not a likeness of Chi Wai. Athletic shorts are a clipped slice of the MakeHuman helper-tights shell
 (same CC0 mesh) so the hero stays a physique study rather than a nude render.
