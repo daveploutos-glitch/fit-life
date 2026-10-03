@@ -10,9 +10,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=day1002b" />
+  <link rel="stylesheet" href="styles.css?v=hero3d2" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js" defer></script>
-  <script src="app.js?v=day1002b" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js" defer></script>
+  <script src="hero-body.js?v=hero3d2" defer></script>
+  <script src="app.js?v=hero3d2" defer></script>
 </head>
 <body>
   <!-- Fixed minimal top nav -->
@@ -35,15 +37,29 @@
     <section class="stage hero" id="hero">
       <div class="stage-bg hero-bg" aria-hidden="true"></div>
       <div class="stage-vignette" aria-hidden="true"></div>
-      <div class="stage-inner hero-inner reveal">
-        <p class="eyebrow">CHI WAI · SUMMER BODY MISSION</p>
-        <h1 class="display">FIT LIFE</h1>
-        <p class="hero-baseline">
-          <span class="hero-num" id="hero-weight">102.6</span>
-          <span class="hero-unit">KG BASELINE</span>
-        </p>
-        <p class="hero-sub" id="hero-sub">載入中…</p>
-        <a class="cta" href="#mission" id="cta-begin">BEGIN</a>
+      <div class="hero-split">
+        <div class="hero-stage" id="hero-stage">
+          <canvas id="hero-canvas" aria-label="Goal physique, rotating 3D figure. Drag to orbit."></canvas>
+          <div class="hero-fallback" id="hero-fallback" hidden>
+            <div class="hero-fallback-body" aria-hidden="true"></div>
+          </div>
+          <div class="hero-caption">
+            <div class="hero-caption-k">TARGET PHYSIQUE</div>
+            <div class="hero-caption-v">87–90 KG <span>·</span> 12–15%</div>
+            <div class="hero-caption-s">LEAN · SHOULDERS · ABS</div>
+          </div>
+          <div class="hero-orbit-hint">DRAG · ORBIT</div>
+        </div>
+        <div class="stage-inner hero-inner reveal">
+          <p class="eyebrow">CHI WAI · SUMMER BODY MISSION</p>
+          <h1 class="display">FIT LIFE</h1>
+          <p class="hero-baseline">
+            <span class="hero-num" id="hero-weight">102.6</span>
+            <span class="hero-unit">KG BASELINE</span>
+          </p>
+          <p class="hero-sub" id="hero-sub">載入中…</p>
+          <a class="cta" href="#mission" id="cta-begin">BEGIN</a>
+        </div>
       </div>
       <div class="scroll-cue" aria-hidden="true"><span></span></div>
     </section>
