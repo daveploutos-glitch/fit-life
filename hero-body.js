@@ -180,7 +180,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
   var loader = new GLTFLoader();
   loader.load(
-    "models/goal-physique.glb?v=hero3d9",
+    "models/goal-physique.glb?v=hero3d10",
     function (gltf) {
       modelRoot = gltf.scene;
       modelRoot.traverse(function (obj) {
