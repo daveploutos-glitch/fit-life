@@ -1,7 +1,7 @@
 {
-  "generated": "2026-10-04 16:10",
+  "generated": "2026-10-04 22:12",
   "tz": "HKT",
-  "source": "hand-seeded from /home/box/fitness/log.md",
+  "source": "merged from /home/box/fitness/log.md",
   "entries": [
     {
       "date": "2026-09-28",
@@ -512,15 +512,15 @@
         ]
       },
       "kcal": {
-        "min": 1010,
-        "max": 1360,
-        "est": 1190,
+        "min": 1830,
+        "max": 1830,
+        "est": 1830,
         "incomplete": true
       },
       "proteinG": {
-        "min": 79,
-        "max": 99,
-        "est": 89,
+        "min": 164,
+        "max": 164,
+        "est": 164,
         "incomplete": true
       },
       "partial": true,
@@ -533,10 +533,17 @@
           "detail": "去皮鴨胸 ~100–120g + 烤鯖魚 2 + 薯仔粒大份 ~300–350g + 炒蛋約2隻 + 清炒時菜薄醬 + 黑碗係蠟燭（唔計熱量）",
           "kcal": 1190,
           "proteinG": 89
+        },
+        {
+          "name": "晚餐",
+          "detail": "Mission Reduced Carb Wrap 1 個 + 瘦梅頭豬肉片 300g + 泡菜兩匙羹（2 tbsp；高鈉）",
+          "kcal": 640,
+          "proteinG": 75,
+          "estimate": "wrap 按標籤；豬肉及泡菜為估算中位數"
         }
       ],
-      "notes": "Workout A 完成；熱身單車完成。順序：深蹲 → 划船 → 臥推 → RDL → 平板支撐。臥推由 18kg 提升至每隻 20kg。午餐已記 1,190 kcal／89g 蛋白；早餐及其餘飲食未報。",
-      "journal": "⚔ Workout A COMPLETE：熱身單車；高腳杯深蹲 20kg×2 組 + 22kg×1 組（3×10）；坐姿拉索划船 37.5kg 3×12；啞鈴臥推每隻 20kg 3×10；啞鈴 RDL 每隻 20kg 3×10；平板支撐 3×30 秒。順序：深蹲 → 划船 → 臥推 → RDL → 平板。\n午餐保留原記錄：粗估 1,190 kcal · 蛋白 89g（範圍 1,010–1,360 · 79–99g）。"
+      "notes": "Workout A 完成；熱身單車完成。順序：深蹲 → 划船 → 臥推 → RDL → 平板支撐。臥推由 18kg 提升至每隻 20kg。午餐 1,190 kcal／89g 蛋白；晚餐估算 640 kcal／75g 蛋白；全日估算約 1,830 kcal／164g 蛋白。",
+      "journal": "⚔ Workout A COMPLETE：熱身單車；高腳杯深蹲 20kg×2 組 + 22kg×1 組（3×10）；坐姿拉索划船 37.5kg 3×12；啞鈴臥推每隻 20kg 3×10；啞鈴 RDL 每隻 20kg 3×10；平板支撐 3×30 秒。順序：深蹲 → 划船 → 臥推 → RDL → 平板。\n午餐：粗估 1,190 kcal · 蛋白 89g。晚餐：Mission Reduced Carb Wrap 1 個（114／7.6）＋瘦梅頭豬肉片 300g（估算中位數 500／66）＋泡菜兩匙羹（估算 20／1），晚餐約 640 kcal · 蛋白 75g。全日估算約 1,830 kcal · 蛋白 164g；鈉含量較高，cut 期間留意即可。"
     }
   ]
 }
