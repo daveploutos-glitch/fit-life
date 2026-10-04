@@ -385,14 +385,16 @@
     if (latest?.training) {
       list.innerHTML = latest.training.exercises
         .map((ex) => {
-          const wt =
-            ex.kg != null
-              ? `${ex.sets}×${ex.reps}@${ex.kg}${ex.perSide ? "/side" : ""}kg`
+          const wt = ex.setsByKg
+            ? `${ex.sets}×${ex.reps}@${ex.setsByKg.map((part) => `${part.kg}kg×${part.sets}`).join(" + ")}`
+            : ex.kg != null
+              ? `${ex.sets}×${ex.reps}@${ex.kg}${ex.perSide ? "kg/side" : "kg"}`
               : `${ex.sets}×${ex.reps}`;
           return `<li><span class="nm">${ex.nameZh || ex.name}<small>${ex.name}</small></span><span class="wt">${wt}</span></li>`;
         })
         .join("");
-      setText("#workout-a-meta", `${latest.date} · Workout ${latest.training.workout} · FIRST COMPLETE`);
+      const warmup = latest.training.warmup?.status === "complete" ? " · BIKE WARM-UP" : "";
+      setText("#workout-a-meta", `${latest.date} · Workout ${latest.training.workout} · FIRST COMPLETE${warmup}`);
     } else {
       list.innerHTML = "<li>尚未有訓練記錄</li>";
     }

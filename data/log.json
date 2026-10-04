@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04 12:42",
+  "generated": "2026-10-04 16:10",
   "tz": "HKT",
   "source": "hand-seeded from /home/box/fitness/log.md",
   "entries": [
@@ -451,7 +451,65 @@
       "sleepH": null,
       "training": {
         "workout": "A",
-        "status": "planned"
+        "status": "complete",
+        "warmup": {
+          "type": "bike",
+          "status": "complete"
+        },
+        "exercises": [
+          {
+            "id": "goblet_squat",
+            "name": "Goblet squat",
+            "nameZh": "高腳杯深蹲",
+            "sets": 3,
+            "reps": 10,
+            "setsByKg": [
+              {
+                "sets": 2,
+                "kg": 20
+              },
+              {
+                "sets": 1,
+                "kg": 22
+              }
+            ]
+          },
+          {
+            "id": "cable_row",
+            "name": "Seated cable row",
+            "nameZh": "坐姿拉索划船",
+            "sets": 3,
+            "reps": 12,
+            "kg": 37.5,
+            "note": "先做；臥推位置被佔"
+          },
+          {
+            "id": "db_bench",
+            "name": "DB bench press",
+            "nameZh": "啞鈴臥推",
+            "sets": 3,
+            "reps": 10,
+            "kg": 20,
+            "perSide": true,
+            "note": "由 18kg 提升"
+          },
+          {
+            "id": "db_rdl",
+            "name": "DB Romanian deadlift",
+            "nameZh": "啞鈴羅馬尼亞硬拉",
+            "sets": 3,
+            "reps": 10,
+            "kg": 20,
+            "perSide": true
+          },
+          {
+            "id": "plank",
+            "name": "Plank",
+            "nameZh": "平板支撐",
+            "sets": 3,
+            "reps": "30s"
+          }
+        ]
       },
       "kcal": {
         "min": 1010,
@@ -477,8 +535,8 @@
           "proteinG": 89
         }
       ],
-      "notes": "午餐先報；早餐／Workout A／其餘未報。分項粗估：鴨胸~220/28；鯖魚2~440/38；薯仔~300/7；炒蛋~155/12；時菜~75/4；黑碗係蠟燭（唔計熱量）。",
-      "journal": "午餐：去皮鴨胸約5–6塊（~100–120g）＋烤鯖魚2＋薯仔粒大份（~300–350g）＋炒蛋約2隻＋清炒時菜薄醬＋黑碗係蠟燭（唔計熱量）。粗估約 1,190 kcal · 蛋白 89g（範圍 1,010–1,360 · 79–99g）。今日累計至午餐；Workout A 預定未報。"
+      "notes": "Workout A 完成；熱身單車完成。順序：深蹲 → 划船 → 臥推 → RDL → 平板支撐。臥推由 18kg 提升至每隻 20kg。午餐已記 1,190 kcal／89g 蛋白；早餐及其餘飲食未報。",
+      "journal": "⚔ Workout A COMPLETE：熱身單車；高腳杯深蹲 20kg×2 組 + 22kg×1 組（3×10）；坐姿拉索划船 37.5kg 3×12；啞鈴臥推每隻 20kg 3×10；啞鈴 RDL 每隻 20kg 3×10；平板支撐 3×30 秒。順序：深蹲 → 划船 → 臥推 → RDL → 平板。\n午餐保留原記錄：粗估 1,190 kcal · 蛋白 89g（範圍 1,010–1,360 · 79–99g）。"
     }
   ]
 }
