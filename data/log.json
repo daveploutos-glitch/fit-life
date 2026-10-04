@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04 01:00",
+  "generated": "2026-10-04 12:42",
   "tz": "HKT",
   "source": "hand-seeded from /home/box/fitness/log.md",
   "entries": [
@@ -441,6 +441,44 @@
       ],
       "notes": "Workout B 完成。步數 1,720（Shortcuts ~22:30 HKT）。尋晚約 8h；當日午睡約 3–4h。臂彎機組數係假設 2 組，次數未記；三頭下壓 2 組、次數未記。",
       "journal": "⚔ Workout B COMPLETE：腿推 60kg 3×12；滑輪下拉 37.5kg 3×12；坐姿啞鈴肩推 12kg 3×12；啞鈴弓步 12kg 3×10/side；二頭彎舉機 40kg（假設 2 組，次數未記）；三頭下壓 30kg 2 組（次數未記）。\n午餐：氣炸牛扒（去肥）+ 氣炸鯖魚 2 + 少許三色飯 + 泡菜。晚餐：生蠔 1 斤 + 脆肉丸片 + 少許飯 + 大量泡菜。\n全日粗估約 1,800–2,400 kcal · 蛋白 140–200g。步數 1,720（Shortcuts 電郵 ~22:30 HKT）。尋晚瞓約 8h；當日午睡約 3–4h。"
+    },
+    {
+      "date": "2026-10-04",
+      "weekday": "日",
+      "type": "train",
+      "weightKg": null,
+      "steps": null,
+      "sleepH": null,
+      "training": {
+        "workout": "A",
+        "status": "planned"
+      },
+      "kcal": {
+        "min": 1100,
+        "max": 1450,
+        "est": 1280,
+        "incomplete": true
+      },
+      "proteinG": {
+        "min": 85,
+        "max": 105,
+        "est": 95,
+        "incomplete": true
+      },
+      "partial": true,
+      "hunger": null,
+      "mood": null,
+      "freeMeal": false,
+      "meals": [
+        {
+          "name": "午餐",
+          "detail": "去皮鴨胸 ~100–120g + 烤鯖魚 2 + 薯仔粒大份 ~300–350g + 炒蛋約2隻 + 清炒時菜薄醬 + 奶／豆奶 ~150–200ml",
+          "kcal": 1280,
+          "proteinG": 95
+        }
+      ],
+      "notes": "午餐先報；早餐／Workout A／其餘未報。分項粗估：鴨胸~220/28；鯖魚2~440/38；薯仔~300/7；炒蛋~155/12；時菜~75/4；奶／豆奶~90/6。",
+      "journal": "午餐：去皮鴨胸約5–6塊（~100–120g）＋烤鯖魚2＋薯仔粒大份（~300–350g）＋炒蛋約2隻＋清炒時菜薄醬＋奶／豆奶~150–200ml。粗估約 1,280 kcal · 蛋白 95g（範圍 1,100–1,450 · 85–105g）。今日累計至午餐；Workout A 預定未報。"
     }
   ]
 }
