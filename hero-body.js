@@ -204,7 +204,7 @@ import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 
   var loader = new GLTFLoader();
   loader.load(
-    "models/goal-physique.glb?v=hero3d13",
+    "models/goal-physique.glb?v=hero3d14",
     function (gltf) {
       modelRoot = gltf.scene;
       modelRoot.traverse(function (obj) {
