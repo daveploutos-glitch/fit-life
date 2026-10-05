@@ -376,45 +376,48 @@
     });
   }
 
-  function renderTraining(p) {
-    setText("#training-lede", `${p.training.phaseName} · ${p.training.split}`);
-
-    const done = (state.log.entries || []).filter((e) => e.training?.status === "complete");
-    const latest = done[done.length - 1];
-    const list = $("#workout-a-log");
-    if (latest?.training) {
-      list.innerHTML = latest.training.exercises
-        .map((ex) => {
-          const wt = ex.setsByKg
-            ? `${ex.sets}×${ex.reps}@${ex.setsByKg.map((part) => `${part.kg}kg×${part.sets}`).join(" + ")}`
-            : ex.kg != null
-              ? `${ex.sets}×${ex.reps}@${ex.kg}${ex.perSide ? "kg/side" : "kg"}`
-              : `${ex.sets}×${ex.reps}`;
-          return `<li><span class="nm">${ex.nameZh || ex.name}<small>${ex.name}</small></span><span class="wt">${wt}</span></li>`;
-        })
-        .join("");
-      const warmup = latest.training.warmup?.status === "complete" ? " · BIKE WARM-UP" : "";
-      setText("#workout-a-meta", `${latest.date} · Workout ${latest.training.workout} · FIRST COMPLETE${warmup}`);
-    } else {
-      list.innerHTML = "<li>尚未有訓練記錄</li>";
-    }
-
-    const B = p.workouts.B;
-    $("#workout-b-plan").innerHTML = (B.exercises || [])
+  function paintPatch(articleSel, listSel, metaSel, workout, metaText) {
+    const article = $(articleSel);
+    if (!article || !workout) return;
+    const planned = workout.status !== "done";
+    article.classList.toggle("planned", planned);
+    const stamp = article.querySelector(".patch-stamp");
+    if (stamp) stamp.textContent = planned ? "PLANNED" : "COMPLETE";
+    const list = $(listSel);
+    list.innerHTML = (workout.exercises || [])
       .map((ex) => {
-        const sug = ex.suggestedKg ? `建議 ${ex.suggestedKg}` : `${ex.sets}×${ex.reps}`;
-        return `<li><span class="nm">${ex.nameZh}<small>${ex.name} · ${ex.sets}×${ex.reps}</small></span><span class="wt">${sug}</span></li>`;
+        const sug = ex.suggestedKg ? ex.suggestedKg : `${ex.sets}×${ex.reps}`;
+        return `<li><span class="nm">${ex.nameZh || ex.name}<small>${ex.name} · ${ex.sets}×${ex.reps}</small></span><span class="wt">${sug}</span></li>`;
       })
       .join("");
-    setText("#workout-b-meta", `計劃 ${B.plannedDate || "Sat"} · Workout B`);
+    setText(metaSel, metaText);
+  }
 
+  function renderTraining(p) {
+    const week = p.training.week ? ` · ${p.training.week}` : "";
+    setText("#training-lede", `${p.training.phaseName}${week} · ${p.training.split}`);
+
+    const A = p.workouts.A;
+    const B = p.workouts.B;
+    const aMeta = A?.status === "planned"
+      ? `NEXT ${A.plannedDate || "Sat"} · Workout A`
+      : `Workout A`;
+    const bWhen = [B?.plannedDate, B?.repeatDate].filter(Boolean).join(" · ");
+    const bMeta = B?.status === "planned"
+      ? `NEXT ${bWhen || "Wed"} · Workout B`
+      : `計劃 ${B?.plannedDate || "Sat"} · Workout B`;
+    paintPatch("#patch-a", "#workout-a-log", "#workout-a-meta", A, aMeta);
+    paintPatch("#patch-b", "#workout-b-plan", "#workout-b-meta", B, bMeta);
+
+    const today = todayISO();
     $("#week-strip").innerHTML = (p.training.thisWeek || [])
       .map((d) => {
-        const cls = d.status === "done" ? "done" : "";
-        const st = d.status === "done" ? "COMPLETE" : "PLANNED";
+        const cls = d.status === "done" ? "done" : d.date === today ? "today" : "";
+        const st = d.status === "done" ? "COMPLETE" : d.date === today ? "TODAY" : "PLANNED";
+        const title = d.workout === "REST" ? "REST" : `WORKOUT ${d.workout}`;
         return `<div class="week-day ${cls}">
           <div class="wd">${d.date} · ${d.day}</div>
-          <div class="ww">WORKOUT ${d.workout}</div>
+          <div class="ww">${title}</div>
           <div class="ws">${st}</div>
         </div>`;
       })

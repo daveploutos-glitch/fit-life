@@ -674,6 +674,8 @@ button { font-family: inherit; }
   border-left: 2px solid var(--line);
 }
 .week-day.done { border-left-color: var(--text); }
+.week-day.today { border-left-color: var(--text); }
+
 .week-day .wd {
   font-size: 0.62rem;
   letter-spacing: 0.16em;

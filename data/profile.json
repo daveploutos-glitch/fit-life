@@ -8,22 +8,57 @@
   "program": "FIT AS FUCK · COMMAND",
   "tz": "Asia/Hong_Kong",
   "targets": {
-    "kcal": { "min": 2000, "max": 2100, "label": "熱量" },
-    "proteinG": { "min": 170, "max": 180, "label": "蛋白質" },
-    "steps": { "min": 7000, "max": 8000, "label": "步數" },
-    "sleepH": { "min": 7, "label": "睡眠" }
+    "kcal": {
+      "min": 2000,
+      "max": 2100,
+      "label": "熱量"
+    },
+    "proteinG": {
+      "min": 170,
+      "max": 180,
+      "label": "蛋白質"
+    },
+    "steps": {
+      "min": 7000,
+      "max": 8000,
+      "label": "步數"
+    },
+    "sleepH": {
+      "min": 7,
+      "label": "睡眠"
+    }
   },
   "training": {
     "phase": 1,
     "phaseName": "Phase 1 · 基礎期",
     "split": "Full-body A/B",
-    "normalDays": ["Wed", "Sat", "Sun"],
-    "thisWeek": [
-      { "date": "2026-10-01", "day": "Thu", "workout": "A", "status": "done" },
-      { "date": "2026-10-03", "day": "Sat", "workout": "B", "status": "done" },
-      { "date": "2026-10-04", "day": "Sun", "workout": "A", "status": "done" }
+    "normalDays": [
+      "Wed",
+      "Sat",
+      "Sun"
     ],
-    "note": "原 Phase 1：Wed A / Sat B / Sun A。本週改為 Thu A / Sat B / Sun A（演唱會調整）"
+    "thisWeek": [
+      {
+        "date": "2026-10-07",
+        "day": "Wed",
+        "workout": "B",
+        "status": "planned"
+      },
+      {
+        "date": "2026-10-10",
+        "day": "Sat",
+        "workout": "A",
+        "status": "planned"
+      },
+      {
+        "date": "2026-10-11",
+        "day": "Sun",
+        "workout": "B",
+        "status": "planned"
+      }
+    ],
+    "note": "W2 標準輪換（plan.md）：周三 10/7 Workout B · 周六 10/10 Workout A · 周日 10/11 Workout B。周一、二、四、五休息或輕量有氧，步數 7–8k。W1 演唱會週係 Thu A / Sat B / Sun A，唔係每週都 A/B/A。周日 B 重覆周三做到嘅重量；只有周三全部組 RIR≥2 先再加一檔。",
+    "week": "W2 · 10/5–10/11"
   },
   "baseline": {
     "date": "2026-10-01",
@@ -53,25 +88,106 @@
       "name": "Workout A",
       "nameZh": "訓練 A · 全身",
       "exercises": [
-        { "id": "goblet_squat", "name": "Goblet squat", "nameZh": "高腳杯深蹲", "sets": 3, "reps": "10" },
-        { "id": "db_bench", "name": "DB bench press", "nameZh": "啞鈴臥推", "sets": 3, "reps": "10" },
-        { "id": "cable_row", "name": "Seated cable row", "nameZh": "坐姿拉索划船", "sets": 3, "reps": "12" },
-        { "id": "db_rdl", "name": "DB Romanian deadlift", "nameZh": "啞鈴羅馬尼亞硬拉", "sets": 3, "reps": "10" },
-        { "id": "plank", "name": "Plank", "nameZh": "平板支撐", "sets": 3, "reps": "30s" }
-      ]
+        {
+          "id": "goblet_squat",
+          "name": "Goblet squat",
+          "nameZh": "高腳杯深蹲",
+          "sets": 3,
+          "reps": "10",
+          "suggestedKg": "22 kg"
+        },
+        {
+          "id": "db_bench",
+          "name": "DB bench press",
+          "nameZh": "啞鈴臥推",
+          "sets": 3,
+          "reps": "10",
+          "suggestedKg": "22 kg/side"
+        },
+        {
+          "id": "cable_row",
+          "name": "Seated cable row",
+          "nameZh": "坐姿拉索划船",
+          "sets": 3,
+          "reps": "12",
+          "suggestedKg": "40 kg"
+        },
+        {
+          "id": "db_rdl",
+          "name": "DB Romanian deadlift",
+          "nameZh": "啞鈴羅馬尼亞硬拉",
+          "sets": 3,
+          "reps": "10",
+          "suggestedKg": "22 kg/side"
+        },
+        {
+          "id": "plank",
+          "name": "Plank",
+          "nameZh": "平板支撐",
+          "sets": 3,
+          "reps": "35s",
+          "suggestedKg": "3×35s"
+        }
+      ],
+      "status": "planned",
+      "plannedDate": "2026-10-10"
     },
     "B": {
       "name": "Workout B",
       "nameZh": "訓練 B · 全身",
-      "status": "done",
-      "plannedDate": "2026-10-03",
+      "status": "planned",
+      "plannedDate": "2026-10-07",
       "exercises": [
-        { "id": "leg_press", "name": "Leg press", "nameZh": "腿推", "sets": 3, "reps": "12", "suggestedKg": "40–60" },
-        { "id": "lat_pulldown", "name": "Lat pulldown", "nameZh": "滑輪下拉", "sets": 3, "reps": "10", "suggestedKg": "30–40" },
-        { "id": "db_shoulder", "name": "Seated DB shoulder press", "nameZh": "坐姿啞鈴肩推", "sets": 3, "reps": "10", "suggestedKg": "light" },
-        { "id": "db_lunges", "name": "DB lunges", "nameZh": "啞鈴弓步", "sets": 2, "reps": "10/side", "suggestedKg": "light" },
-        { "id": "arms", "name": "Biceps curl + Triceps pushdown", "nameZh": "二頭彎舉 + 三頭下壓", "sets": 2, "reps": "12 each", "suggestedKg": "light" }
-      ]
+        {
+          "id": "leg_press",
+          "name": "Leg press",
+          "nameZh": "腿推",
+          "sets": 3,
+          "reps": "12",
+          "suggestedKg": "65 kg"
+        },
+        {
+          "id": "lat_pulldown",
+          "name": "Lat pulldown",
+          "nameZh": "滑輪下拉",
+          "sets": 3,
+          "reps": "10–12",
+          "suggestedKg": "40 kg"
+        },
+        {
+          "id": "db_shoulder",
+          "name": "Seated DB shoulder press",
+          "nameZh": "坐姿啞鈴肩推",
+          "sets": 3,
+          "reps": "10",
+          "suggestedKg": "14 kg/side"
+        },
+        {
+          "id": "db_lunges",
+          "name": "DB lunges",
+          "nameZh": "啞鈴弓步",
+          "sets": 2,
+          "reps": "10/side",
+          "suggestedKg": "14 kg/side"
+        },
+        {
+          "id": "biceps_curl",
+          "name": "Biceps curl",
+          "nameZh": "二頭彎舉",
+          "sets": 2,
+          "reps": "12",
+          "suggestedKg": "42.5 kg"
+        },
+        {
+          "id": "triceps_pushdown",
+          "name": "Triceps pushdown",
+          "nameZh": "三頭下壓",
+          "sets": 2,
+          "reps": "12",
+          "suggestedKg": "32.5 kg"
+        }
+      ],
+      "repeatDate": "2026-10-11"
     }
   }
 }
