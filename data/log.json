@@ -555,15 +555,15 @@
       "sleepH": null,
       "training": null,
       "kcal": {
-        "min": 210,
-        "max": 220,
-        "est": 215,
+        "min": 1400,
+        "max": 1450,
+        "est": 1415,
         "incomplete": true
       },
       "proteinG": {
-        "min": 16,
-        "max": 17,
-        "est": 16.5,
+        "min": 150,
+        "max": 155,
+        "est": 153.5,
         "incomplete": true
       },
       "partial": true,
@@ -577,10 +577,24 @@
           "kcal": 215,
           "proteinG": 16.5,
           "estimate": "乳酪標籤未知；按約95 kcal／15g蛋白估算"
+        },
+        {
+          "name": "午餐",
+          "detail": "大 galang：兩個雞胸＋雜菜",
+          "kcal": 550,
+          "proteinG": 75,
+          "estimate": "中位數；範圍約 500–600 kcal／70–80g"
+        },
+        {
+          "name": "晚餐",
+          "detail": "Mission Reduced Carb Wrap 1 + 鴨胸肉餡 + 泡菜少許 + 青紅蘿蔔湯 1 碗 + 豬骨 3 件",
+          "kcal": 650,
+          "proteinG": 62,
+          "estimate": "wrap 按標籤；其餘為估算中位數"
         }
       ],
-      "notes": "Mon 休息日；Phase 1 W2。早餐約 210–220 kcal／16–17g 蛋白，其餘餐飲未記。",
-      "journal": "休息日 · Phase 1 W2。早餐：Chobani 15G Protein Strawberry Greek Yogurt pouch 150g + Monster Energy Ultra Zero Sugar 355ml + 中型香蕉 1 隻。早餐小計約 210–220 kcal／16–17g 蛋白。"
+      "notes": "Mon 休息日；Phase 1 W2。早 215／16.5；午 550／75；晚 650／62；全日約 1,415 kcal／154g 蛋白（熱量偏低）。步數／瞓覺未報。",
+      "journal": "休息日 · Phase 1 W2。\n早餐：Chobani 蛋白乳酪 + Monster Ultra + 香蕉（約 215／16.5）。\n午餐：大 galang 兩個雞胸＋雜菜（約 550／75）。\n晚餐：wrap 包鴨胸＋泡菜 + 青紅蘿蔔湯 + 豬骨 3（約 650／62）。\n全日約 1,415 kcal／154g 蛋白。"
     }
   ]
 }
