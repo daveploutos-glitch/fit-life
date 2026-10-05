@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-05 09:25",
+  "generated": "2026-10-06 07:40",
   "tz": "HKT",
   "source": "merged from /home/box/fitness/log.md",
   "entries": [
@@ -551,7 +551,7 @@
       "weekday": "一",
       "type": "rest",
       "weightKg": null,
-      "steps": null,
+      "steps": 9942,
       "sleepH": null,
       "training": null,
       "kcal": {
@@ -593,8 +593,9 @@
           "estimate": "wrap 按標籤；其餘為估算中位數"
         }
       ],
-      "notes": "Mon 休息日；Phase 1 W2。早 215／16.5；午 550／75；晚 650／62；全日約 1,415 kcal／154g 蛋白（熱量偏低）。步數／瞓覺未報。",
-      "journal": "休息日 · Phase 1 W2。\n早餐：Chobani 蛋白乳酪 + Monster Ultra + 香蕉（約 215／16.5）。\n午餐：大 galang 兩個雞胸＋雜菜（約 550／75）。\n晚餐：wrap 包鴨胸＋泡菜 + 青紅蘿蔔湯 + 豬骨 3（約 650／62）。\n全日約 1,415 kcal／154g 蛋白。"
+      "notes": "Mon 休息日；Phase 1 W2。早 215／16.5；午 550／75；晚 650／62；全日約 1,415 kcal／154g 蛋白（熱量偏低）。步數 9,942（Shortcuts 電郵，約 22:30 HKT）；瞓覺未報。",
+      "journal": "休息日 · Phase 1 W2。\n早餐：Chobani 蛋白乳酪 + Monster Ultra + 香蕉（約 215／16.5）。\n午餐：大 galang 兩個雞胸＋雜菜（約 550／75）。\n晚餐：wrap 包鴨胸＋泡菜 + 青紅蘿蔔湯 + 豬骨 3（約 650／62）。\n全日約 1,415 kcal／154g 蛋白。\n步數：9,942（Shortcuts 電郵「每日步數」，約 22:30 HKT）。",
+      "stepsSource": "Shortcuts email subject 每日步數 · 2026-10-05 22:30 HKT"
     }
   ]
 }
