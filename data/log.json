@@ -596,6 +596,48 @@
       "notes": "Mon 休息日；Phase 1 W2。早 215／16.5；午 550／75；晚 650／62；全日約 1,415 kcal／154g 蛋白（熱量偏低）。步數 9,942（Shortcuts 電郵，約 22:30 HKT）；瞓覺未報。",
       "journal": "休息日 · Phase 1 W2。\n早餐：Chobani 蛋白乳酪 + Monster Ultra + 香蕉（約 215／16.5）。\n午餐：大 galang 兩個雞胸＋雜菜（約 550／75）。\n晚餐：wrap 包鴨胸＋泡菜 + 青紅蘿蔔湯 + 豬骨 3（約 650／62）。\n全日約 1,415 kcal／154g 蛋白。\n步數：9,942（Shortcuts 電郵「每日步數」，約 22:30 HKT）。",
       "stepsSource": "Shortcuts email subject 每日步數 · 2026-10-05 22:30 HKT"
+    },
+    {
+      "date": "2026-10-06",
+      "weekday": "二",
+      "type": "rest",
+      "weightKg": null,
+      "steps": null,
+      "sleepH": null,
+      "training": null,
+      "kcal": {
+        "min": 380,
+        "max": 430,
+        "est": 405,
+        "incomplete": true
+      },
+      "proteinG": {
+        "min": 47,
+        "max": 56,
+        "est": 51,
+        "incomplete": true
+      },
+      "partial": true,
+      "hunger": null,
+      "mood": null,
+      "freeMeal": false,
+      "meals": [
+        {
+          "name": "早餐",
+          "detail": "香蕉 1 + 黑咖啡",
+          "kcal": 110,
+          "proteinG": 1
+        },
+        {
+          "name": "午餐",
+          "detail": "Amatake 沙律雞 2 包（115 kcal／23.1g 每100g）+ 迷你甘筍一份",
+          "kcal": 295,
+          "proteinG": 50,
+          "estimate": "每包按 100–120g 估"
+        }
+      ],
+      "notes": "Tue 休息日；Phase 1 W2。早 110／1；午 295／50；至午餐約 405 kcal／51g。",
+      "journal": "休息日 · Phase 1 W2。\n早餐：香蕉＋黑咖啡（約 110／1）。\n午餐：Amatake 沙律雞 2 包＋迷你甘筍（約 295／50）。"
     }
   ]
 }
