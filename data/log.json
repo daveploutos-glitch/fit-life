@@ -606,15 +606,15 @@
       "sleepH": null,
       "training": null,
       "kcal": {
-        "min": 555,
-        "max": 605,
-        "est": 580,
+        "min": 425,
+        "max": 475,
+        "est": 450,
         "incomplete": true
       },
       "proteinG": {
-        "min": 72,
-        "max": 81,
-        "est": 76,
+        "min": 47,
+        "max": 55,
+        "est": 51,
         "incomplete": true
       },
       "partial": true,
@@ -630,10 +630,10 @@
         },
         {
           "name": "午餐",
-          "detail": "Amatake 沙律雞 2 包（115 kcal／23.1g 每100g）+ 迷你甘筍一份",
-          "kcal": 295,
-          "proteinG": 50,
-          "estimate": "每包按 100–120g 估"
+          "detail": "Amatake 沙律雞 1 包（115 kcal／23.1g 每100g）+ 迷你甘筍一份",
+          "kcal": 165,
+          "proteinG": 25,
+          "estimate": "一包按 100–120g 估"
         },
         {
           "name": "下午小食",
@@ -643,8 +643,8 @@
           "estimate": "按包裝標籤"
         }
       ],
-      "notes": "Tue 休息日；Phase 1 W2。早 110／1；午 295／50；小食 175／25；至小食約 580 kcal／76g。",
-      "journal": "休息日 · Phase 1 W2。\n早餐：香蕉＋黑咖啡（約 110／1）。\n午餐：Amatake 沙律雞 2 包＋迷你甘筍（約 295／50）。\n下午小食：朱古力蛋白奶昔（175／25）。"
+      "notes": "Tue 休息日；Phase 1 W2。早 110／1；午 165／25；小食 175／25；至小食約 450 kcal／51g。",
+      "journal": "休息日 · Phase 1 W2。\n早餐：香蕉＋黑咖啡（約 110／1）。\n午餐：Amatake 沙律雞 1 包＋迷你甘筍（約 165／25）。\n下午小食：朱古力蛋白奶昔水沖（175／25）。"
     }
   ]
 }
