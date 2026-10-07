@@ -714,15 +714,15 @@
         ]
       },
       "kcal": {
-        "min": 1050,
-        "max": 1300,
-        "est": 1150,
+        "min": 1270,
+        "max": 1520,
+        "est": 1370,
         "incomplete": false
       },
       "proteinG": {
-        "min": 60,
-        "max": 80,
-        "est": 70,
+        "min": 110,
+        "max": 130,
+        "est": 120,
         "incomplete": false
       },
       "partial": true,
@@ -753,9 +753,15 @@
           "detail": "Vitamin Well Original 500ml",
           "kcal": 30,
           "proteinG": 0
+        },
+        {
+          "name": "練後蛋白",
+          "detail": "ON Isolate 2 勺",
+          "kcal": 220,
+          "proteinG": 50
         }
       ],
-      "notes": "Workout B 完成，全面加重。彎舉後一度乏力快暈，自述無大礙。飲食未報。 全日約 1,150 kcal／70g（偏低）。",
+      "notes": "Workout B 完成，全面加重。彎舉後一度乏力快暈，自述無大礙。飲食未報。 全日約 1,370 kcal／120g（偏低）。",
       "journal": "⚔ Workout B COMPLETE：腿推 70×3×12；下拉 45×3×12；肩推 14/16/16 ×12；弓步 14kg 每邊 2 組；拉索彎舉 30kg；三頭下壓完成。\n⚠️ 彎舉後乏力快暈，休息後完成三頭。"
     }
   ]
