@@ -714,15 +714,15 @@
         ]
       },
       "kcal": {
-        "min": 1270,
-        "max": 1520,
-        "est": 1370,
+        "min": 1450,
+        "max": 1750,
+        "est": 1600,
         "incomplete": false
       },
       "proteinG": {
-        "min": 110,
-        "max": 130,
-        "est": 120,
+        "min": 135,
+        "max": 160,
+        "est": 148,
         "incomplete": false
       },
       "partial": true,
@@ -738,15 +738,15 @@
         },
         {
           "name": "午餐",
-          "detail": "baby 紅蘿蔔 220g + protein bar + 即食雞胸 100g",
+          "detail": "baby 紅蘿蔔 220g + protein bar（17g）+ 即食雞胸 100g",
           "kcal": 400,
-          "proteinG": 45
+          "proteinG": 41
         },
         {
           "name": "晚餐",
-          "detail": "煎蛋仔 4 舊（肉碎＋菜脯）+ 白飯 1 碗 + 生菜 1 碟",
-          "kcal": 650,
-          "proteinG": 25
+          "detail": "半隻雞 + 煎蛋 2 隻 + 白飯 1 碗 + 生菜 1 碟",
+          "kcal": 850,
+          "proteinG": 58
         },
         {
           "name": "飲品",
@@ -761,7 +761,7 @@
           "proteinG": 50
         }
       ],
-      "notes": "Workout B 完成，全面加重。彎舉後一度乏力快暈，自述無大礙。飲食未報。 全日約 1,370 kcal／120g（偏低）。",
+      "notes": "Workout B 完成，全面加重。彎舉後一度乏力快暈，自述無大礙。飲食未報。 全日約 1,600 kcal／148g。",
       "journal": "⚔ Workout B COMPLETE：腿推 70×3×12；下拉 45×3×12；肩推 14/16/16 ×12；弓步 14kg 每邊 2 組；拉索彎舉 30kg；三頭下壓完成。\n⚠️ 彎舉後乏力快暈，休息後完成三頭。"
     }
   ]
