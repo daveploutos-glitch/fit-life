@@ -645,6 +645,77 @@
       ],
       "notes": "Tue 休息日；Phase 1 W2。早 110／1；午 165／25；小食 175／25；至小食約 450 kcal／51g。",
       "journal": "休息日 · Phase 1 W2。\n早餐：香蕉＋黑咖啡（約 110／1）。\n午餐：Amatake 沙律雞 1 包＋迷你甘筍（約 165／25）。\n下午小食：朱古力蛋白奶昔水沖（175／25）。"
+    },
+    {
+      "date": "2026-10-07",
+      "weekday": "三",
+      "type": "train",
+      "weightKg": null,
+      "steps": null,
+      "sleepH": null,
+      "training": {
+        "workout": "B",
+        "status": "complete",
+        "exercises": [
+          {
+            "id": "leg_press",
+            "nameZh": "腿推",
+            "sets": 3,
+            "reps": 12,
+            "kg": 70
+          },
+          {
+            "id": "lat_pulldown",
+            "nameZh": "滑輪下拉",
+            "sets": 3,
+            "reps": 12,
+            "kg": 45
+          },
+          {
+            "id": "db_shoulder_press",
+            "nameZh": "坐姿啞鈴肩推",
+            "sets": 3,
+            "reps": 12,
+            "kg": 16,
+            "perSide": true,
+            "note": "14kg×1 組、16kg×2 組"
+          },
+          {
+            "id": "db_lunge",
+            "nameZh": "啞鈴弓步",
+            "sets": 2,
+            "reps": 10,
+            "kg": 14,
+            "perSide": true,
+            "note": "每邊 2 組；次數未報"
+          },
+          {
+            "id": "cable_curl",
+            "nameZh": "拉索二頭彎舉",
+            "sets": 2,
+            "reps": 12,
+            "kg": 30,
+            "note": "代替彎舉機"
+          },
+          {
+            "id": "triceps_pushdown",
+            "nameZh": "三頭下壓",
+            "sets": 2,
+            "reps": 12,
+            "kg": null,
+            "note": "重量未報"
+          }
+        ]
+      },
+      "kcal": null,
+      "proteinG": null,
+      "partial": true,
+      "hunger": null,
+      "mood": null,
+      "freeMeal": false,
+      "meals": [],
+      "notes": "Workout B 完成，全面加重。彎舉後一度乏力快暈，自述無大礙。飲食未報。",
+      "journal": "⚔ Workout B COMPLETE：腿推 70×3×12；下拉 45×3×12；肩推 14/16/16 ×12；弓步 14kg 每邊 2 組；拉索彎舉 30kg；三頭下壓完成。\n⚠️ 彎舉後乏力快暈，休息後完成三頭。"
     }
   ]
 }
