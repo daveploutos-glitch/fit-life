@@ -657,7 +657,7 @@
       "weekday": "三",
       "type": "train",
       "weightKg": null,
-      "steps": null,
+      "steps": 7970,
       "sleepH": null,
       "training": {
         "workout": "B",
@@ -761,8 +761,8 @@
           "proteinG": 50
         }
       ],
-      "notes": "Workout B 完成，全面加重。彎舉後一度乏力快暈，自述無大礙。飲食未報。 全日約 1,600 kcal／148g。",
-      "journal": "⚔ Workout B COMPLETE：腿推 70×3×12；下拉 45×3×12；肩推 14/16/16 ×12；弓步 14kg 每邊 2 組；拉索彎舉 30kg；三頭下壓完成。\n⚠️ 彎舉後乏力快暈，休息後完成三頭。"
+      "notes": "Workout B 完成，全面加重。彎舉後一度乏力快暈，自述無大礙。飲食未報。 全日約 1,600 kcal／148g。 步數 7,970（Shortcuts 電郵，約 22:30 HKT）。",
+      "journal": "⚔ Workout B COMPLETE：腿推 70×3×12；下拉 45×3×12；肩推 14/16/16 ×12；弓步 14kg 每邊 2 組；拉索彎舉 30kg；三頭下壓完成。\n⚠️ 彎舉後乏力快暈，休息後完成三頭。\n步數：7,970（Shortcuts 電郵「每日步數」，約 22:30 HKT）。"
     }
   ]
 }
