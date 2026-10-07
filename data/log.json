@@ -606,18 +606,18 @@
       "sleepH": null,
       "training": null,
       "kcal": {
-        "min": 425,
-        "max": 475,
-        "est": 450,
-        "incomplete": true
+        "min": 1000,
+        "max": 1200,
+        "est": 1100,
+        "incomplete": false
       },
       "proteinG": {
-        "min": 47,
-        "max": 55,
-        "est": 51,
-        "incomplete": true
+        "min": 85,
+        "max": 105,
+        "est": 95,
+        "incomplete": false
       },
-      "partial": true,
+      "partial": false,
       "hunger": null,
       "mood": null,
       "freeMeal": false,
@@ -641,10 +641,16 @@
           "kcal": 175,
           "proteinG": 25,
           "estimate": "按包裝標籤"
+        },
+        {
+          "name": "晚餐",
+          "detail": "斬件豬骨 4–5 舊 + 大餃子 3 隻 + 少少泡菜",
+          "kcal": 650,
+          "proteinG": 45
         }
       ],
-      "notes": "Tue 休息日；Phase 1 W2。早 110／1；午 165／25；小食 175／25；至小食約 450 kcal／51g。",
-      "journal": "休息日 · Phase 1 W2。\n早餐：香蕉＋黑咖啡（約 110／1）。\n午餐：Amatake 沙律雞 1 包＋迷你甘筍（約 165／25）。\n下午小食：朱古力蛋白奶昔水沖（175／25）。"
+      "notes": "Tue 休息日；Phase 1 W2。早 110／1；午 165／25；小食 175／25；至小食約 450 kcal／51g。 晚餐 650／45；全日約 1,100 kcal／95g（偏低）。",
+      "journal": "休息日 · Phase 1 W2。\n早餐：香蕉＋黑咖啡（約 110／1）。\n午餐：Amatake 沙律雞 1 包＋迷你甘筍（約 165／25）。\n下午小食：朱古力蛋白奶昔水沖（175／25）。\n晚餐：豬骨 4–5 舊＋大餃子 3＋泡菜（約 650／45）。全日約 1,100／95。"
     },
     {
       "date": "2026-10-07",
@@ -707,14 +713,49 @@
           }
         ]
       },
-      "kcal": null,
-      "proteinG": null,
+      "kcal": {
+        "min": 1050,
+        "max": 1300,
+        "est": 1150,
+        "incomplete": false
+      },
+      "proteinG": {
+        "min": 60,
+        "max": 80,
+        "est": 70,
+        "incomplete": false
+      },
       "partial": true,
       "hunger": null,
       "mood": null,
       "freeMeal": false,
-      "meals": [],
-      "notes": "Workout B 完成，全面加重。彎舉後一度乏力快暈，自述無大礙。飲食未報。",
+      "meals": [
+        {
+          "name": "早餐",
+          "detail": "香蕉 1 + 黑咖啡",
+          "kcal": 110,
+          "proteinG": 1
+        },
+        {
+          "name": "午餐",
+          "detail": "baby 紅蘿蔔 220g + protein bar + 即食雞胸 100g",
+          "kcal": 400,
+          "proteinG": 45
+        },
+        {
+          "name": "晚餐",
+          "detail": "煎蛋仔 4 舊（肉碎＋菜脯）+ 白飯 1 碗 + 生菜 1 碟",
+          "kcal": 650,
+          "proteinG": 25
+        },
+        {
+          "name": "飲品",
+          "detail": "Vitamin Well Original 500ml",
+          "kcal": 30,
+          "proteinG": 0
+        }
+      ],
+      "notes": "Workout B 完成，全面加重。彎舉後一度乏力快暈，自述無大礙。飲食未報。 全日約 1,150 kcal／70g（偏低）。",
       "journal": "⚔ Workout B COMPLETE：腿推 70×3×12；下拉 45×3×12；肩推 14/16/16 ×12；弓步 14kg 每邊 2 組；拉索彎舉 30kg；三頭下壓完成。\n⚠️ 彎舉後乏力快暈，休息後完成三頭。"
     }
   ]
