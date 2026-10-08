@@ -763,6 +763,41 @@
       ],
       "notes": "Workout B 完成，全面加重。彎舉後一度乏力快暈，自述無大礙。飲食未報。 全日約 1,600 kcal／148g。 步數 7,970（Shortcuts 電郵，約 22:30 HKT）。",
       "journal": "⚔ Workout B COMPLETE：腿推 70×3×12；下拉 45×3×12；肩推 14/16/16 ×12；弓步 14kg 每邊 2 組；拉索彎舉 30kg；三頭下壓完成。\n⚠️ 彎舉後乏力快暈，休息後完成三頭。\n步數：7,970（Shortcuts 電郵「每日步數」，約 22:30 HKT）。"
+    },
+    {
+      "date": "2026-10-08",
+      "weekday": "四",
+      "type": "rest",
+      "weightKg": null,
+      "steps": null,
+      "sleepH": null,
+      "training": null,
+      "kcal": {
+        "min": 310,
+        "max": 350,
+        "est": 330,
+        "incomplete": true
+      },
+      "proteinG": {
+        "min": 48,
+        "max": 54,
+        "est": 51,
+        "incomplete": true
+      },
+      "partial": true,
+      "hunger": null,
+      "mood": null,
+      "freeMeal": false,
+      "meals": [
+        {
+          "name": "早餐",
+          "detail": "香蕉 1 + ON Isolate 2 勺 + 黑咖啡 + 肌酸 1 茶匙",
+          "kcal": 330,
+          "proteinG": 51
+        }
+      ],
+      "notes": "Thu 休息日；Phase 1 W2。至目前約 330 kcal／51g 蛋白。",
+      "journal": "休息日 · Phase 1 W2。\n早餐：香蕉＋ON Isolate 2 勺＋黑咖啡＋肌酸（約 330／51）。"
     }
   ]
 }
