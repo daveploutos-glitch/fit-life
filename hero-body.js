@@ -144,7 +144,7 @@ import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
     renderer.setSize(w, h, false);
     camera.aspect = w / Math.max(h, 1);
     var narrow = (w / Math.max(h, 1)) < 0.85;
-    // hero3d15 is taller (~1.77 m). Pull the camera back so the full figure stays in frame.
+    // hero3d16 is taller (~1.77 m). Pull the camera back so the full figure stays in frame.
     camera.fov = narrow ? 28 : 26;
     var dist = narrow ? 4.22 : 4.02;
     var lookY = narrow ? 0.88 : 0.92;
@@ -205,7 +205,7 @@ import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 
   var loader = new GLTFLoader();
   loader.load(
-    "models/goal-physique.glb?v=hero3d15",
+    "models/goal-physique.glb?v=hero3d16",
     function (gltf) {
       modelRoot = gltf.scene;
       modelRoot.traverse(function (obj) {
