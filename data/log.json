@@ -773,15 +773,15 @@
       "sleepH": null,
       "training": null,
       "kcal": {
-        "min": 590,
-        "max": 650,
-        "est": 620,
+        "min": 640,
+        "max": 700,
+        "est": 670,
         "incomplete": true
       },
       "proteinG": {
-        "min": 96,
-        "max": 106,
-        "est": 101,
+        "min": 94,
+        "max": 104,
+        "est": 99,
         "incomplete": true
       },
       "partial": true,
@@ -798,11 +798,11 @@
         {
           "name": "午餐",
           "detail": "生紅蘿蔔 250g + ON Double Chocolate（普通版）2 勺",
-          "kcal": 290,
-          "proteinG": 50
+          "kcal": 340,
+          "proteinG": 48
         }
       ],
-      "notes": "Thu 休息日；Phase 1 W2。至午餐約 620 kcal／101g 蛋白。",
+      "notes": "Thu 休息日；Phase 1 W2。至午餐約 670 kcal／99g 蛋白。",
       "journal": "休息日 · Phase 1 W2。\n早餐：香蕉＋ON Isolate 2 勺＋黑咖啡＋肌酸（約 330／51）。\n午餐：生紅蘿蔔 250g＋ON Double Chocolate 2 勺（約 290／50）。"
     }
   ]
