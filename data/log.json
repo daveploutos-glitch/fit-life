@@ -658,7 +658,7 @@
       "type": "train",
       "weightKg": null,
       "steps": 7970,
-      "sleepH": null,
+      "sleepH": 7,
       "training": {
         "workout": "B",
         "status": "complete",
