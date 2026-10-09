@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-09 11:45",
+  "generated": "2026-10-09 16:31",
   "tz": "HKT",
   "source": "merged from /home/box/fitness/log.md",
   "entries": [
@@ -831,20 +831,27 @@
           "detail": "香蕉 1 + ON Isolate 2 勺 + 黑咖啡 + 肌酸",
           "kcal": 330,
           "proteinG": 51
+        },
+        {
+          "name": "午餐",
+          "detail": "ON Double Chocolate（普通版）2 勺",
+          "kcal": 340,
+          "proteinG": 48,
+          "estimate": "同 10/8 午餐蛋白粉估；普通版非 Isolate"
         }
       ],
-      "notes": "Fri 休息日。早餐約 330／51。",
-      "journal": "休息日 · Phase 1 W2。\n早餐：同 10/8（約 330／51）。",
+      "notes": "Fri 休息日。早 330／51；午 340／48（ON Double Chocolate 普通版 2 勺）；至午餐約 670 kcal／99g。",
+      "journal": "休息日 · Phase 1 W2。\n早餐：同 10/8——香蕉＋ON Isolate 2 勺＋黑咖啡＋肌酸（約 330／51）。\n午餐：ON Double Chocolate（普通版）2 勺（約 340／48）。\n今日累計（至午餐）：約 670 kcal · 蛋白 99g。",
       "kcal": {
-        "min": 310,
-        "max": 350,
-        "est": 330,
+        "min": 650,
+        "max": 690,
+        "est": 670,
         "incomplete": true
       },
       "proteinG": {
-        "min": 48,
-        "max": 54,
-        "est": 51,
+        "min": 95,
+        "max": 103,
+        "est": 99,
         "incomplete": true
       }
     }
