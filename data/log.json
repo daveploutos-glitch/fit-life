@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-06 07:40",
+  "generated": "2026-10-09 11:45",
   "tz": "HKT",
   "source": "merged from /home/box/fitness/log.md",
   "entries": [
@@ -769,7 +769,7 @@
       "weekday": "四",
       "type": "rest",
       "weightKg": null,
-      "steps": null,
+      "steps": 10544,
       "sleepH": null,
       "training": null,
       "kcal": {
@@ -809,8 +809,9 @@
           "estimate": "寬估中位"
         }
       ],
-      "notes": "Thu 休息日。早午輕、晚大餐。全日約 2070 kcal／179g（寬估）。",
-      "journal": "休息日 · Phase 1 W2。\n早餐：香蕉＋ON Isolate 2 勺＋黑咖啡＋肌酸（約 330／51）。\n午餐：生紅蘿蔔 250g＋ON Double Chocolate 2 勺（約 290／50）。"
+      "notes": "Thu 休息日。早午輕、晚大餐。全日約 2070 kcal／179g（寬估）。 步數 10,544（Shortcuts 電郵，約 22:30 HKT）。",
+      "journal": "休息日 · Phase 1 W2。\n早餐：香蕉＋ON Isolate 2 勺＋黑咖啡＋肌酸（約 330／51）。\n午餐：生紅蘿蔔 250g＋ON Double Chocolate 2 勺（約 290／50）。\n步數：10,544（Shortcuts 電郵「每日步數」，約 22:30 HKT）。",
+      "stepsSource": "Shortcuts email subject 每日步數 · 2026-10-08 22:30 HKT"
     },
     {
       "date": "2026-10-09",
