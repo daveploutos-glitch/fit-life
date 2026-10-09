@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-09 16:34",
+  "generated": "2026-10-09 18:39",
   "tz": "HKT",
   "source": "merged from /home/box/fitness/log.md",
   "entries": [
@@ -817,7 +817,7 @@
       "date": "2026-10-09",
       "weekday": "五",
       "type": "rest",
-      "weightKg": null,
+      "weightKg": 104.0,
       "steps": null,
       "sleepH": null,
       "training": null,
@@ -847,8 +847,8 @@
           "estimate": "~180 kcal／16g 蛋白"
         }
       ],
-      "notes": "Fri 休息日。早 330／51；午 340／48（ON Double Chocolate 普通版 2 勺）；小食 蛋白棒 180／16；至小食約 850 kcal／115g。",
-      "journal": "休息日 · Phase 1 W2。\n早餐：同 10/8——香蕉＋ON Isolate 2 勺＋黑咖啡＋肌酸（約 330／51）。\n午餐：ON Double Chocolate（普通版）2 勺（約 340／48）。\n小食：蛋白棒（約 180／16）。\n今日累計（至小食）：約 850 kcal · 蛋白 115g。",
+      "notes": "Fri 休息日。早 330／51；午 340／48；小食 蛋白棒 180／16；至小食約 850 kcal／115g。 howbodyfit 18:33：104.0 kg／30.4% BF（vs 10/1：體重 +1.4、體脂 +0.6、脂肪 +1.0、肌肉 +0.3、WHR −0.04）。",
+      "journal": "休息日 · Phase 1 W2。\n早餐：同 10/8——香蕉＋ON Isolate 2 勺＋黑咖啡＋肌酸（約 330／51）。\n午餐：ON Double Chocolate（普通版）2 勺（約 340／48）。\n小食：蛋白棒（約 180／16）。\n今日累計（至小食）：約 850 kcal · 蛋白 115g。\n體脂磅 howbodyfit 18:33：104.0 kg／BMI 31.1／BF 30.4%／脂肪 31.6／肌肉 41.6／FFM 72.4／內臟脂肪 12／WHR 0.93／BMR 1933／代謝年齡 32／分 71／理想 85.3。 vs 10/1：體重 +1.4、BF +0.6、脂肪 +1.0、肌肉 +0.3、WHR −0.04。",
       "kcal": {
         "min": 820,
         "max": 880,
@@ -860,6 +860,29 @@
         "max": 120,
         "est": 115,
         "incomplete": true
+      },
+      "bodyComp": {
+        "source": "howbodyfit",
+        "time": "18:33",
+        "bmi": 31.1,
+        "bodyFatPct": 30.4,
+        "fatMassKg": 31.6,
+        "skeletalMuscleKg": 41.6,
+        "ffmKg": 72.4,
+        "visceralFat": 12,
+        "whr": 0.93,
+        "bmr": 1933,
+        "metabolicAge": 32,
+        "score": 71,
+        "deviceIdealKg": 85.3,
+        "vsBaseline": {
+          "date": "2026-10-01",
+          "weightKg": 1.4,
+          "bodyFatPct": 0.6,
+          "fatMassKg": 1.0,
+          "skeletalMuscleKg": 0.3,
+          "whr": -0.04
+        }
       }
     }
   ]
