@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-09 18:39",
+  "generated": "2026-10-10 17:00",
   "tz": "HKT",
   "source": "merged from /home/box/fitness/log.md",
   "entries": [
@@ -884,6 +884,93 @@
           "whr": -0.04
         }
       }
+    },
+    {
+      "date": "2026-10-10",
+      "weekday": "六",
+      "type": "train",
+      "weightKg": null,
+      "steps": null,
+      "sleepH": null,
+      "training": {
+        "workout": "A",
+        "status": "complete",
+        "warmup": {
+          "type": "bike",
+          "status": "complete",
+          "note": "單車 + 輕組熱身"
+        },
+        "exercises": [
+          {
+            "id": "goblet_squat",
+            "name": "Goblet squat",
+            "nameZh": "高腳杯深蹲",
+            "sets": 3,
+            "reps": 10,
+            "setsByKg": [
+              {
+                "sets": 1,
+                "kg": 22
+              },
+              {
+                "sets": 2,
+                "kg": 24
+              }
+            ],
+            "note": "目標 3×10；實做 22kg×1 + 24kg×2"
+          },
+          {
+            "id": "db_bench",
+            "name": "DB bench press",
+            "nameZh": "啞鈴臥推",
+            "sets": 3,
+            "reps": 10,
+            "kg": 24,
+            "perSide": true,
+            "note": "由計劃 22kg 更正為每隻 24kg"
+          },
+          {
+            "id": "cable_row",
+            "name": "Seated cable row",
+            "nameZh": "坐姿拉索划船",
+            "sets": 3,
+            "reps": 12,
+            "kg": 40,
+            "note": "按計劃完成"
+          },
+          {
+            "id": "db_rdl",
+            "name": "DB Romanian deadlift",
+            "nameZh": "啞鈴羅馬尼亞硬拉",
+            "sets": 3,
+            "reps": 10,
+            "kg": 22,
+            "perSide": true,
+            "note": "按計劃完成"
+          },
+          {
+            "id": "plank",
+            "name": "Plank",
+            "nameZh": "平板支撐",
+            "sets": 3,
+            "reps": "35s",
+            "note": "全日完成後確認；按計劃 3×35s"
+          }
+        ]
+      },
+      "kcal": {
+        "incomplete": true
+      },
+      "proteinG": {
+        "incomplete": true
+      },
+      "partial": true,
+      "hunger": null,
+      "mood": null,
+      "freeMeal": false,
+      "meals": [],
+      "notes": "Workout A 完成（Phase 1 W2 Sat）。熱身單車+輕組。深蹲 22×1 + 24×2；臥推每隻 24kg 3×10；划船 40kg 3×12；RDL 每隻 22kg 3×10；平板 3×35s。飲食未報。",
+      "journal": "⚔ Workout A COMPLETE · Phase 1 W2。\n熱身：單車 + 輕組。\n高腳杯深蹲：22kg×1 組 + 24kg×2 組（3×10）。\n啞鈴臥推：每隻 24kg 3×10（由計劃 22 更正）。\n坐姿拉索划船：40kg 3×12。\n啞鈴 RDL：每隻 22kg 3×10。\n平板支撐：3×35 秒。\n飲食未報。"
     }
   ]
 }
