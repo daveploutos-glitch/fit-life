@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-15 07:40",
+  "generated": "2026-10-16 07:42",
   "tz": "HKT",
   "source": "merged from /home/box/fitness/log.md",
   "entries": [
@@ -995,6 +995,29 @@
       "meals": [],
       "notes": "步數 12,662（Shortcuts 電郵「每日步數」）。飲食／訓練未報。",
       "journal": "步數：12,662（Shortcuts 電郵「每日步數」）。飲食未報。"
+    },
+    {
+      "date": "2026-10-15",
+      "weekday": "四",
+      "type": "rest",
+      "weightKg": null,
+      "steps": 10293,
+      "stepsSource": "Shortcuts email subject 每日步數 · 2026-10-15",
+      "sleepH": null,
+      "training": null,
+      "kcal": {
+        "incomplete": true
+      },
+      "proteinG": {
+        "incomplete": true
+      },
+      "partial": true,
+      "hunger": null,
+      "mood": null,
+      "freeMeal": false,
+      "meals": [],
+      "notes": "步數 10,293（Shortcuts 電郵「每日步數」）。飲食／訓練未報。",
+      "journal": "步數：10,293（Shortcuts 電郵「每日步數」）。飲食未報。"
     }
   ]
 }
